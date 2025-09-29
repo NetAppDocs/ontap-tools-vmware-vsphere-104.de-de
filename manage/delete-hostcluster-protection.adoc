@@ -1,0 +1,22 @@
+---
+permalink: manage/delete-hostcluster-protection.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: Wenn Sie den Hostclusterschutz entfernen, sind die Datenspeicher nicht mehr geschützt. 
+---
+= Entfernen des Hostclusterschutzes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie den Hostclusterschutz entfernen, sind die Datenspeicher nicht mehr geschützt.
+
+.Schritte
+. Um die geschützten Host-Cluster anzuzeigen, navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*.
++
+Auf dieser Seite können Sie die geschützten Hostcluster zusammen mit ihrem Schutzstatus, der SnapMirror -Beziehung und dem entsprechenden SnapMirror Status überwachen.
+
+. Wählen Sie im Fenster *Hostclusterschutz* das Auslassungsmenü neben dem Cluster aus und wählen Sie dann *Schutz entfernen*.
+

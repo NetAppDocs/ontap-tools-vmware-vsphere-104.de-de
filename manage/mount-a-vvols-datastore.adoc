@@ -1,0 +1,23 @@
+---
+permalink: manage/mount-a-vvols-datastore.html 
+sidebar: sidebar 
+keywords: Mount vVol 
+summary: 'Sie können einen VMware Virtual Volumes \(vVols\)-Datenspeicher mithilfe des Dialogfelds „vVols -Datenspeicher bereitstellen“ auf einem oder mehreren zusätzlichen Hosts bereitstellen.  Durch das Mounten des Datenspeichers wird Speicherzugriff für zusätzliche Hosts bereitgestellt.  Sie können den vVols Datenspeicher nur über die APIs aushängen.' 
+---
+= Mounten Sie einen vVols Datenspeicher
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können einen VMware Virtual Volumes (vVols)-Datenspeicher auf einem oder mehreren zusätzlichen Hosts bereitstellen, um zusätzlichen Hosts Speicherzugriff zu gewähren.  Sie können den vVols Datenspeicher nur über die APIs aushängen.
+
+.Schritte
+. Wählen Sie auf der Startseite des vSphere-Clients *Hosts und Cluster* aus.
+. Wählen Sie im Navigationsbereich das Rechenzentrum aus, das den Datenspeicher enthält.
+. Klicken Sie mit der rechten Maustaste auf den Datenspeicher und wählen Sie * NetApp ONTAP Tools * > * Datenspeicher einbinden *.
+. Wählen Sie im Dialogfeld *Datenspeicher auf Hosts mounten* die Hosts aus, auf denen Sie den Datenspeicher mounten möchten, und wählen Sie dann *Mounten*.
+
+
+Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.

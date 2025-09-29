@@ -1,0 +1,31 @@
+---
+permalink: manage/enable-services.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Sie können das Administratorkennwort mit dem ONTAP Tools Manager ändern, um Dienste wie den VASA Provider, den Import der vVols Konfiguration und die Notfallwiederherstellung (SRA) mit dem ONTAP Tools Manager zu aktivieren.' 
+---
+= Aktivieren Sie ONTAP tools for VMware vSphere -Dienste
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können das Administratorkennwort mit dem ONTAP Tools Manager ändern, um Dienste wie den VASA Provider, den Import der vVols Konfiguration und die Notfallwiederherstellung (SRA) mit dem ONTAP Tools Manager zu aktivieren.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie im Übersichtsbereich *Geräteeinstellungen bearbeiten*.
+. Im Abschnitt *Dienste* können Sie optionale Dienste wie VASA Provider, Import der vVols Konfiguration und Disaster Recovery (SRA) je nach Bedarf aktivieren.
++
+Wenn Sie die Dienste zum ersten Mal aktivieren, müssen Sie die VASA-Provider- und SRA-Anmeldeinformationen erstellen.  Diese werden verwendet, um den VASA-Provider und die SRA-Dienste auf dem vCenter Server zu registrieren oder zu aktivieren. Der Benutzername darf nur Buchstaben, Zahlen und Unterstriche enthalten.  Die Passwortlänge sollte zwischen 8 und 256 Zeichen liegen.
+
++
+
+NOTE: Stellen Sie vor dem Deaktivieren optionaler Dienste sicher, dass die von ONTAP -Tools verwalteten vCenter-Server diese nicht verwenden.
+
++
+Die Option *Import der vVols -Konfiguration zulassen* wird nur angezeigt, wenn der VASA-Provider-Dienst aktiviert ist. Diese Option ermöglicht die vVols Datenmigration von ONTAP Tools 9.xx zu ONTAP Tools 10.4.
+
+

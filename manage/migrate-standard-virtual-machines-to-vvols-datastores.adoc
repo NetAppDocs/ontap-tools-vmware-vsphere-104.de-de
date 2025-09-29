@@ -1,0 +1,28 @@
+---
+permalink: manage/migrate-standard-virtual-machines-to-vvols-datastores.html 
+sidebar: sidebar 
+keywords: Migrate NFS and VMFS virtual machines 
+summary: 'Sie können virtuelle Maschinen von NFS- und VMFS-Datenspeichern in Virtual Volumes (vVols)-Datenspeicher migrieren, um die Vorteile der richtlinienbasierten VM-Verwaltung und anderer vVols Funktionen zu nutzen. Mit vVols Datenspeichern können Sie erhöhte Arbeitslastanforderungen erfüllen.' 
+---
+= Migrieren Sie virtuelle Maschinen mit NFS- und VMFS-Datenspeichern zu vVols -Datenspeichern
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können virtuelle Maschinen von NFS- und VMFS-Datenspeichern in Virtual Volumes (vVols)-Datenspeicher migrieren, um die Vorteile der richtlinienbasierten VM-Verwaltung und anderer vVols Funktionen zu nutzen. Mit vVols Datenspeichern können Sie erhöhte Arbeitslastanforderungen erfüllen.
+
+.Bevor Sie beginnen
+Stellen Sie sicher, dass VASA Provider auf keiner der virtuellen Maschinen ausgeführt wird, die Sie migrieren möchten.  Wenn Sie eine virtuelle Maschine, auf der VASA Provider ausgeführt wird, zu einem vVols Datenspeicher migrieren, können Sie keine Verwaltungsvorgänge durchführen, einschließlich des Einschaltens der virtuellen Maschinen, die sich auf vVols Datenspeichern befinden.
+
+*Über diese Aufgabe*
+
+Wenn Sie von einem NFS- und VMFS-Datenspeicher zu einem vVols -Datenspeicher migrieren, verwendet der vCenter Server beim Verschieben von Daten aus VMFS-Datenspeichern vStorage APIs for Array Integration (VAAI)-Offloads, jedoch nicht aus einer NFS-VMDK-Datei.  VAAI-Offloads reduzieren normalerweise die Belastung des Hosts.
+
+.Schritte
+. Klicken Sie mit der rechten Maustaste auf die virtuelle Maschine, die Sie migrieren möchten, und wählen Sie *Migrieren*.
+. Wählen Sie *Nur Speicher ändern* und dann *Weiter*.
+. Wählen Sie ein virtuelles Datenträgerformat, eine VM-Speicherrichtlinie und einen vVol-Datenspeicher aus, der den Funktionen des Datenspeichers entspricht, den Sie migrieren.
+. Überprüfen Sie die Einstellungen und wählen Sie *Fertig*.
+

@@ -1,0 +1,36 @@
+---
+permalink: manage/unmount-datastores-on-host.html 
+sidebar: sidebar 
+keywords:  
+summary: Mit der Aktion „Datenspeicher aushängen“ wird die Bereitstellung eines NFS- oder VMFS-Datenspeichers von ESXi-Hosts aufgehoben.  Die Aktion „Datenspeicher aushängen“ ist für NFS- und VMFS-Datenspeicher aktiviert, die von den ONTAP tools for VMware vSphere erkannt oder verwaltet werden. 
+---
+= NFS- und VMFS-Datenspeicher aushängen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit der Aktion „Datenspeicher aushängen“ wird die Bereitstellung eines NFS- oder VMFS-Datenspeichers von ESXi-Hosts aufgehoben.  Die Aktion „Datenspeicher aushängen“ ist für NFS- und VMFS-Datenspeicher aktiviert, die von den ONTAP tools for VMware vSphere erkannt oder verwaltet werden.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Klicken Sie mit der rechten Maustaste auf ein NFS- oder VMFS-Datenspeicherobjekt und wählen Sie *Datenspeicher aushängen*.
++
+Ein Dialogfeld wird geöffnet und listet die ESXi-Hosts auf, auf denen der Datenspeicher gemountet ist.  Wenn der Vorgang auf einem geschützten Datenspeicher ausgeführt wird, wird eine Warnmeldung auf dem Bildschirm angezeigt.
+
+. Wählen Sie einen oder mehrere ESXi-Hosts aus, um den Datenspeicher auszuhängen.
++
+Sie können den Datenspeicher nicht von allen Hosts aushängen.  Die Benutzeroberfläche schlägt vor, dass Sie stattdessen den Vorgang zum Löschen des Datenspeichers verwenden.
+
+. Wählen Sie die Schaltfläche *Aushängen*.
++
+Wenn der Datenspeicher Teil eines geschützten Hostclusters ist, wird eine Warnmeldung angezeigt.
+
+
+
+
+NOTE: Wenn der geschützte Datenspeicher ausgehängt wird, kann die bestehende Schutzeinstellung zu einem teilweisen Schutz führen. Siehe link:../manage/edit-hostcluster-protection.html["Geschützten Hostcluster ändern"] um einen umfassenden Schutz zu ermöglichen.
+
+.Wie geht es weiter?
+Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.

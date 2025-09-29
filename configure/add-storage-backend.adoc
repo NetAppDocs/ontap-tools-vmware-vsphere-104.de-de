@@ -1,0 +1,60 @@
+---
+permalink: configure/add-storage-backend.html 
+sidebar: sidebar 
+keywords:  
+summary: Speicher-Backends sind Systeme, die die ESXi-Hosts zur Datenspeicherung verwenden. 
+---
+= Hinzufügen eines Speicher-Backends
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durch Hinzufügen eines Speicher-Backends können Sie einen ONTAP Cluster integrieren.
+
+*Über diese Aufgabe*
+
+Verwenden Sie bei Multitenancy-Setups, bei denen vCenter als Mandant mit einem zugehörigen SVM fungiert, den ONTAP Tools Manager, um den Cluster hinzuzufügen.  Verknüpfen Sie das Speicher-Backend mit dem vCenter Server, um es global der integrierten vCenter Server-Instanz zuzuordnen.  Der vCenter-Mandant muss die gewünschten Storage Virtual Machines (SVMs) an Bord nehmen.  Dies ermöglicht einem SVM-Benutzer die Bereitstellung von vVols Datenspeichern.  Sie können mithilfe der SVM Speicher in vCenter hinzufügen.
+
+Fügen Sie die lokalen Speicher-Backends mit Cluster- oder SVM-Anmeldeinformationen über die Benutzeroberfläche der ONTAP Tools hinzu.  Diese Speicher-Backends sind auf ein einzelnes vCenter beschränkt.  Bei lokaler Verwendung von Cluster-Anmeldeinformationen werden die zugehörigen SVMs automatisch dem vCenter zugeordnet, um vVols oder VMFS zu verwalten.  Für die VMFS-Verwaltung, einschließlich SRA, unterstützen ONTAP -Tools SVM-Anmeldeinformationen, ohne dass ein globaler Cluster erforderlich ist.
+
+[role="tabbed-block"]
+====
+.Verwenden des ONTAP Tools Managers
+--
+
+NOTE: In einer Multi-Tenant-Konfiguration können Sie global einen Storage-Backend-Cluster und lokal SVM hinzufügen, um SVM-Benutzeranmeldeinformationen zu verwenden.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie *Storage Backends* aus der Seitenleiste.
+. Fügen Sie das Speicher-Backend hinzu und geben Sie die Server-IP-Adresse oder den FQDN, den Benutzernamen und das Kennwort an.
++
+
+NOTE: LIFs zur Adressverwaltung von IPv4 und IPv6 werden unterstützt.
+
+
+
+--
+.Verwenden der vSphere-Client-Benutzeroberfläche
+--
+
+NOTE: Beim Konfigurieren eines Speicher-Backends über die Benutzeroberfläche des vSphere-Clients ist zu beachten, dass die vVols Datenspeicher das direkte Hinzufügen eines SVM-Benutzers nicht unterstützen.
+
+. Melden Sie sich beim vSphere-Client an.
+. Wählen Sie auf der Verknüpfungsseite im Abschnitt „Plug-ins“ die Option „NetApp ONTAP Tools“ aus.
+. Wählen Sie *Storage Backends* aus der Seitenleiste.
+. Fügen Sie das Speicher-Backend hinzu und geben Sie die Server-IP-Adresse, den Benutzernamen, das Kennwort und die Portdetails an.
++
+
+NOTE: Um einen SVM-Benutzer direkt hinzuzufügen, können Sie clusterbasierte Anmeldeinformationen und LIFs zur IPv4- und IPv6-Adressverwaltung hinzufügen oder SVM-basierte Anmeldeinformationen mit einem SVM-Verwaltungs-LIF bereitstellen.
+
+
+
+.Wie geht es weiter?
+Die Liste wird aktualisiert und Sie können das neu hinzugefügte Speicher-Backend in der Liste sehen.
+
+--
+====

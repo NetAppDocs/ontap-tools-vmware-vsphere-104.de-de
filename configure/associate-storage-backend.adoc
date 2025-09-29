@@ -1,0 +1,22 @@
+---
+permalink: configure/associate-storage-backend.html 
+sidebar: sidebar 
+keywords:  
+summary: Ordnen Sie dem vCenter Server ein Speicher-Backend zu, um eine globale Zuordnung zwischen dem Speicher-Backend und der integrierten vCenter Server-Instanz zu erstellen. 
+---
+= Zuordnen eines Speicher-Backends zu einer vCenter Server-Instanz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ordnen Sie dem vCenter Server ein Speicher-Backend zu, um eine globale Zuordnung zwischen dem Speicher-Backend und der integrierten vCenter Server-Instanz zu erstellen.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie vCenter in der Seitenleiste aus.
+. Wählen Sie die vertikalen Auslassungspunkte neben der vCenter Server-Instanz aus, die Sie mit den Speicher-Backends verknüpfen möchten.
+. Wählen Sie das Speicher-Backend aus der Dropdown-Liste aus, um die vCenter Server-Instanz mit dem erforderlichen Speicher-Backend zu verknüpfen.
+

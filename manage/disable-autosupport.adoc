@@ -1,0 +1,24 @@
+---
+permalink: manage/disable-autosupport.html 
+sidebar: sidebar 
+keywords:  
+summary: Wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren, ist AutoSupport standardmäßig aktiviert. Es sendet 24 Stunden nach der Aktivierung Nachrichten an den technischen Support. 
+---
+= AutoSupport deaktivieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren, ist AutoSupport standardmäßig aktiviert. Es sendet 24 Stunden nach der Aktivierung Nachrichten an den technischen Support.  Wenn Sie AutoSupport deaktivieren, erhalten Sie keinen proaktiven Support und keine Überwachung mehr.
+
+
+NOTE: Es wird empfohlen, AutoSupport aktiviert zu lassen.  Es trägt dazu bei, die Problemerkennung und -lösung zu beschleunigen.  Das System sammelt AutoSupport -Informationen und speichert sie lokal, auch wenn es deaktiviert ist.  Der Bericht wird jedoch nicht an ein Netzwerk gesendet.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie die Option *Einstellungen* > *Telemetrie* > *Bearbeiten*.
+. Deaktivieren Sie die Option * AutoSupport* und speichern Sie die Änderungen.
+

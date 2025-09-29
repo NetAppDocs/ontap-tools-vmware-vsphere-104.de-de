@@ -1,0 +1,79 @@
+---
+permalink: manage/certificate-manage.html 
+sidebar: sidebar 
+keywords:  
+summary: Eine einzelne Instanz der ONTAP tools for VMware vSphere kann mehrere vCenter Server-Instanzen verwalten.  ONTAP tools for VMware vSphere werden mit einem selbstsignierten Zertifikat für VASA Provider bereitgestellt.  Damit kann nur eine vCenter Server-Instanz für vVols -Datenspeicher verwaltet werden. 
+---
+= Zertifikate verwalten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Während der Bereitstellung wird standardmäßig ein selbstsigniertes Zertifikat für ONTAP -Tools und VASA Provider generiert.  Über die ONTAP Tools Manager-Schnittstelle können Sie das Zertifikat erneuern oder auf eine benutzerdefinierte Zertifizierungsstelle aktualisieren.  Benutzerdefinierte CA-Zertifikate sind in einer Multi-vCenter-Bereitstellung obligatorisch.
+
+.Bevor Sie beginnen
+* Der Domänenname, auf den das Zertifikat ausgestellt ist, sollte der virtuellen IP-Adresse zugeordnet werden.
+* Führen Sie die nslookup-Prüfung für den Domänennamen aus, um zu überprüfen, ob die Domäne in die gewünschte IP-Adresse aufgelöst wird.
+* Die Zertifikate sollten mit dem Domänennamen und der IP-Adresse des ONTAP Tools erstellt werden.
+
+
+
+NOTE: Die IP-Adresse eines ONTAP -Tools sollte einem vollqualifizierten Domänennamen (FQDN) zugeordnet sein.  Zertifikate sollten im Betreff oder in alternativen Betreffnamen denselben FQDN enthalten, der der IP-Adresse der ONTAP Tools zugeordnet ist.
+
+
+NOTE: Sie können nicht von einem CA-signierten zu einem selbstsignierten Zertifikat wechseln.
+
+[role="tabbed-block"]
+====
+.Aktualisieren Sie das ONTAP Tools-Zertifikat
+--
+Die Registerkarte „ONTAP -Tools“ zeigt Details wie den Zertifikatstyp (selbstsigniert/CA-signiert) und den Domänennamen.  Während der Bereitstellung wird standardmäßig ein selbstsigniertes Zertifikat generiert.  Sie können das Zertifikat erneuern oder das Zertifikat auf CA aktualisieren.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie *Zertifikate* > * ONTAP -Tools* > *Erneuern*, um die Zertifikate zu erneuern.
++
+Sie können das Zertifikat erneuern, wenn es abgelaufen ist oder sich dem Ablaufdatum nähert.  Die Option „Erneuern“ ist verfügbar, wenn der Zertifikatstyp CA-signiert ist.  Geben Sie im Popup-Fenster die Details zum Serverzertifikat, privaten Schlüssel, Stammzertifizierungsstelle und Zwischenzertifikat ein.
+
++
+
+NOTE: Das System ist offline, bis das Zertifikat erneuert wird, und Sie werden von der ONTAP Tools Manager-Schnittstelle abgemeldet.
+
+. Um das selbstsignierte Zertifikat auf ein benutzerdefiniertes CA-Zertifikat zu aktualisieren, wählen Sie die Option *Zertifikate* > * ONTAP Tools* > *Upgrade auf CA*.
++
+.. Laden Sie im Popup-Fenster das Serverzertifikat, den privaten Schlüssel des Serverzertifikats, das Stamm-CA-Zertifikat und die Zwischenzertifikatdateien hoch.
+.. Geben Sie den Domänennamen ein, für den Sie dieses Zertifikat generiert haben, und aktualisieren Sie das Zertifikat.
++
+
+NOTE: Das System ist offline, bis das Upgrade abgeschlossen ist, und Sie werden von der ONTAP Tools Manager-Schnittstelle abgemeldet.
+
+
+
+
+
+--
+.Upgrade des VASA-Provider-Zertifikats
+--
+ONTAP tools for VMware vSphere werden mit einem selbstsignierten Zertifikat für VASA Provider bereitgestellt.  Damit kann nur eine vCenter Server-Instanz für vVols -Datenspeicher verwaltet werden.  Wenn Sie mehrere vCenter Server-Instanzen verwalten und die vVols Funktion auf ihnen aktivieren möchten, müssen Sie das selbstsignierte Zertifikat in ein benutzerdefiniertes CA-Zertifikat ändern.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie *Zertifikate* > *VASA-Anbieter* oder * ONTAP Tools* > *Erneuern*, um die Zertifikate zu erneuern.
+. Wählen Sie *Zertifikate* > *VASA-Anbieter* oder * ONTAP Tools* > *Upgrade auf CA*, um das selbstsignierte Zertifikat auf ein benutzerdefiniertes CA-Zertifikat zu aktualisieren.
++
+.. Laden Sie im Popup-Fenster das Serverzertifikat, den privaten Schlüssel des Serverzertifikats, das Stamm-CA-Zertifikat und die Zwischenzertifikatdateien hoch.
+.. Geben Sie den Domänennamen ein, für den Sie dieses Zertifikat generiert haben, und aktualisieren Sie das Zertifikat.
++
+
+NOTE: Das System ist offline, bis das Upgrade abgeschlossen ist, und Sie werden von der ONTAP Tools Manager-Schnittstelle abgemeldet.
+
+
+
+
+
+--
+====

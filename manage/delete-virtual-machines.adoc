@@ -1,0 +1,24 @@
+---
+permalink: manage/delete-virtual-machines.html 
+sidebar: sidebar 
+keywords:  
+summary: Führen Sie die VASA-Bereinigung mit den Schritten in diesem Abschnitt durch. 
+---
+= VASA-Bereinigung
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Führen Sie die VASA-Bereinigung mit den Schritten in diesem Abschnitt durch.
+
+
+NOTE: Es wird empfohlen, vor der Durchführung der VASA-Bereinigung alle vVols Datenspeicher zu entfernen.
+
+.Schritte
+. Heben Sie die Registrierung des Plug-Ins auf, indem Sie in \https://OTV_IP:8143/Register.html gehen.
+. Stellen Sie sicher, dass das Plug-In auf dem vCenter Server nicht mehr verfügbar ist.
+. Fahren Sie die ONTAP tools for VMware vSphere VM herunter.
+. Löschen Sie ONTAP tools for VMware vSphere VM.
+

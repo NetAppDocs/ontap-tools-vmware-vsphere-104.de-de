@@ -1,0 +1,147 @@
+---
+permalink: deploy/pre-deploy-checks.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Bevor Sie die ONTAP tools for VMware vSphere bereitstellen, sollten Sie mit den Speicherplatzanforderungen für das Bereitstellungspaket und einigen grundlegenden Hostsystemanforderungen vertraut sein. 
+---
+= Bevor Sie beginnen…​
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie mit der Bereitstellung fortfahren:
+
+|===
+| Anforderungen | Ihr Status 
+
+
+| Die vSphere-Version, die ONTAP Version und die ESXi-Host-Version sind mit der ONTP-Tool-Version kompatibel. | ❏ Ja ❏ Nein 
+
+
+| vCenter Server-Umgebung ist eingerichtet und konfiguriert | ❏ Ja ❏ Nein 
+
+
+| Browser-Cache wird gelöscht | ❏ Ja ❏ Nein 
+
+
+| Sie verfügen über die Anmeldeinformationen für den übergeordneten vCenter Server | ❏ Ja ❏ Nein 
+
+
+| Sie verfügen über die Anmeldeinformationen für die vCenter Server-Instanz, mit der sich die ONTAP tools for VMware vSphere nach der Bereitstellung zur Registrierung verbinden. | ❏ Ja ❏ Nein 
+
+
+| Der Domänenname, für den das Zertifikat ausgestellt wird, wird der virtuellen IP-Adresse in einer Multi-vCenter-Bereitstellung zugeordnet, in der benutzerdefinierte CA-Zertifikate obligatorisch sind. | ❏ Ja ❏ Nein 
+
+
+| Sie haben die nslookup-Prüfung für den Domänennamen ausgeführt, um zu überprüfen, ob die Domäne in die gewünschte IP-Adresse aufgelöst wird. | ❏ Ja ❏ Nein 
+
+
+| Das Zertifikat wird mit dem Domänennamen und der IP-Adresse der ONTAP Tools erstellt. | ❏ Ja ❏ Nein 
+
+
+| Die Anwendung und die internen Dienste der ONTAP -Tools sind vom vCenter Server aus erreichbar. | ❏ Ja ❏ Nein 
+
+
+| Wenn Sie Multi-Tenant-SVMs verwenden, verfügen Sie auf jedem SVM über ein SVM-Verwaltungs-LIF. | ❏ Ja ❏ Nein 
+|===
+
+
+== Bereitstellungsarbeitsblatt
+
+
+
+=== Für die Bereitstellung auf einem einzelnen Knoten
+
+Verwenden Sie das folgende Arbeitsblatt, um die erforderlichen Informationen für ONTAP tools for VMware vSphere zu sammeln:
+
+|===
+| Erfordernis | Ihr Wert 
+
+
+| IP-Adresse für die ONTAP -Tools-Anwendung. Dies ist die IP-Adresse für den Zugriff auf die Weboberfläche der ONTAP -Tools |  
+
+
+| Virtuelle IP-Adresse der ONTAP -Tools für die interne Kommunikation. Diese IP-Adresse wird für die interne Kommunikation in einem Setup mit mehreren ONTAP -Tools-Instanzen verwendet. Diese IP-Adresse darf nicht mit der IP-Adresse für die ONTAP -Tools-Anwendung identisch sein. |  
+
+
+| DNS-Hostname für den ersten Knoten |  
+
+
+| Primärer DNS-Server |  
+
+
+| Sekundärer DNS-Server |  
+
+
+| DNS-Suchdomäne |  
+
+
+| IPv4-Adresse für den ersten Knoten. Es handelt sich um eine eindeutige IPv4-Adresse für die Knotenverwaltungsschnittstelle im Verwaltungsnetzwerk. |  
+
+
+| Subnetzmaske für die IPv4-Adresse |  
+
+
+| Standard-Gateway für die IPv4-Adresse |  
+
+
+| IPv6-Adresse (optional) |  
+
+
+| IPv6-Präfixlänge (optional) |  
+
+
+| Gateway für die IPv6-Adresse (optional) |  
+|===
+
+NOTE: Erstellen Sie DNS-Einträge für alle oben genannten IP-Adressen.  Ordnen Sie Hostnamen vor der Zuweisung den freien IP-Adressen im DNS zu.  Alle IP-Adressen sollten sich im selben VLAN befinden, das für die Bereitstellung ausgewählt wurde.
+
+
+
+=== Für die Bereitstellung mit hoher Verfügbarkeit (HA)
+
+Zusätzlich zu den Anforderungen für die Bereitstellung eines einzelnen Knotens benötigen Sie für die HA-Bereitstellung die folgenden Informationen:
+
+|===
+
+
+| Erfordernis | Ihr Wert 
+
+
+| Primärer DNS-Server |  
+
+
+| Sekundärer DNS-Server |  
+
+
+| DNS-Suchdomäne |  
+
+
+| DNS-Hostname für den zweiten Knoten |  
+
+
+| IP-Adresse für den zweiten Knoten |  
+
+
+| DNS-Hostname für den dritten Knoten |  
+
+
+| IP-Adresse für den dritten Knoten |  
+|===
+
+
+== Netzwerk-Firewall-Konfiguration
+
+Öffnen Sie die erforderlichen Ports für die IP-Adressen in Ihrer Netzwerk-Firewall.  ONTAP -Tools müssen dieses LIF über Port 443 erreichen können.  Siehelink:../deploy/prerequisites.html["Portanforderungen"] für die neuesten Updates.
+
+
+
+== ONTAP -Speichereinstellungen
+
+Um eine nahtlose Integration des ONTAP Speichers mit ONTAP tools for VMware vSphere sicherzustellen, sollten Sie die folgenden Einstellungen berücksichtigen:
+
+* Wenn Sie Fibre Channel (FC) für die Speicherkonnektivität verwenden, konfigurieren Sie die Zoning auf Ihren FC-Switches, um die ESXi-Hosts mit den FC-LIFs der SVM zu verbinden. https://docs.netapp.com/us-en/ontap/san-config/fibre-channel-fcoe-zoning-concept.html["Erfahren Sie mehr über FC- und FCoE-Zoning mit ONTAP -Systemen"]
+* Um die von ONTAP -Tools verwaltete SnapMirror -Replikation zu verwenden, sollte der ONTAP Speicheradministrator https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["ONTAP Cluster-Peer-Beziehungen"] Und https://docs.netapp.com/us-en/ontap/peering/create-intercluster-svm-peer-relationship-93-later-task.html["ONTAP Intercluster SVM Peer-Beziehungen"] in ONTAP , bevor Sie SnapMirror verwenden.
+

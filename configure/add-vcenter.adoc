@@ -1,0 +1,36 @@
+---
+permalink: configure/add-vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: Fügen Sie vCenter Server-Instanzen zu ONTAP tools for VMware vSphere hinzu, um Ihre virtuellen Datenspeicher in Ihrer vCenter Server-Umgebung zu konfigurieren, zu verwalten und zu schützen. 
+---
+= vCenter Server-Instanzen hinzufügen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Fügen Sie vCenter Server-Instanzen zu ONTAP tools for VMware vSphere hinzu, um Ihre virtuellen Datenspeicher in Ihrer vCenter Server-Umgebung zu konfigurieren, zu verwalten und zu schützen.  Wenn Sie mehrere vCenter Server-Instanzen hinzufügen, sind für die sichere Kommunikation zwischen ONTAP Tools und jedem vCenter Server benutzerdefinierte CA-Zertifikate erforderlich.
+
+*Über diese Aufgabe*
+
+Durch die Integration mit vCenter können Sie mit ONTAP -Tools Speicheraufgaben wie Bereitstellung, Snapshots und Datenschutz direkt vom vSphere-Client aus durchführen, sodass Sie nicht mehr auf separate Speicherverwaltungskonsolen umsteigen müssen.
+
+.Schritte
+. Öffnen Sie einen Webbrowser und navigieren Sie zur URL: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie *vCenters* > *Hinzufügen*, um die vCenter Server-Instanzen zu integrieren.  Geben Sie Ihre vCenter-IP-Adresse oder Ihren Hostnamen, Ihren Benutzernamen, Ihr Kennwort und Ihre Portdetails an.
++
+
+NOTE: Sie benötigen kein Administratorkonto, um vCenter-Instanzen zu ONTAP -Tools hinzuzufügen.  Sie können eine benutzerdefinierte Rolle ohne Administratorkonto mit eingeschränkten Berechtigungen erstellen. Siehelink:../concepts/rbac-vcenter-use.html["Verwenden Sie vCenter Server RBAC mit ONTAP tools for VMware vSphere 10"] für Details.
+
+
+
+Das Hinzufügen einer vCenter Server-Instanz zu ONTAP -Tools löst automatisch die folgenden Aktionen aus:
+
+* Das vCenter-Client-Plug-In ist als Remote-Plug-In registriert.
+* Benutzerdefinierte Berechtigungen für die Plug-Ins und APIs werden auf die vCenter Server-Instanz angewendet.
+* Zur Verwaltung der Benutzer werden benutzerdefinierte Rollen erstellt.
+* Das Plug-In wird als Verknüpfung auf der vSphere-Benutzeroberfläche angezeigt.
+

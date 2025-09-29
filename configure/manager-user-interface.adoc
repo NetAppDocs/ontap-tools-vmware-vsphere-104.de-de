@@ -1,0 +1,48 @@
+---
+permalink: configure/manager-user-interface.html 
+sidebar: sidebar 
+keywords: ontap tools manager, managerui 
+summary: ONTAP Tools Manager bietet dem ONTAP tools for VMware vSphere , was bei der allgemeinen Verwaltung des Geräts, der Mandanten und der Speicher-Backends hilft. 
+---
+= ONTAP Tools Manager-Benutzeroberfläche
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere sind ein Multi-Tenant-System, das mehrere vCenter Server-Instanzen verwalten kann.  ONTAP Tools Manager bietet den ONTAP tools for VMware vSphere Administrator mehr Kontrolle über die verwalteten vCenter Server-Instanzen und integrierten Speicher-Backends.
+
+ONTAP Tools Manager hilft bei:
+
+* vCenter Server-Instanzverwaltung – Fügen Sie vCenter Server-Instanzen zu ONTAP Tools hinzu und verwalten Sie sie.
+* Speicher-Backend-Verwaltung – Fügen Sie ONTAP Speichercluster zu ONTAP tools for VMware vSphere hinzu, verwalten Sie sie und ordnen Sie sie global integrierten vCenter Server-Instanzen zu.
+* Downloads von Protokollpaketen – Sammeln Sie Protokolldateien für ONTAP tools for VMware vSphere.
+* Zertifikatsverwaltung – Ändern Sie das selbstsignierte Zertifikat in ein benutzerdefiniertes CA-Zertifikat und erneuern oder aktualisieren Sie alle Zertifikate des VASA-Anbieters und der ONTAP Tools.
+* Kennwortverwaltung – Setzen Sie das Kennwort des Benutzers für die OVA-Anwendung zurück.
+
+
+Um auf den ONTAP Tools Manager zuzugreifen, starten Sie `\https://<ONTAPtoolsIP>:8443/virtualization/ui/` vom Browser aus und melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+
+Der Abschnitt „Übersicht“ des ONTAP Tools Managers hilft bei der Verwaltung der Appliance-Konfiguration, beispielsweise bei der Dienstverwaltung, der Skalierung der Knotengröße und der Aktivierung von Hochverfügbarkeit (HA).  Sie können auch die allgemeinen Informationen der ONTAP -Tools im Zusammenhang mit den Knoten überwachen, z. B. Integrität, Netzwerkdetails und Warnungen.
+
+image:../media/ontap-tools-manager-overview.png["ONTAP Tools Manager-Dashboard-Übersicht"]
+
+|===
+| *Karte* | *Beschreibung* 
+
+
+| Gerätekarte | Die Appliance-Karte zeigt den Gesamtstatus der ONTAP Tools-Appliance an.  Es zeigt die Konfigurationsdetails des Geräts und den Status der aktivierten Dienste.  Weitere Informationen zur ONTAP Tools-Appliance erhalten Sie, wenn Sie auf den Link *Details anzeigen* klicken.  Wenn ein Aktionsauftrag zum Bearbeiten von Geräteeinstellungen ausgeführt wird, zeigt das Geräte-Portlet den Status und die Details des Auftrags an. 
+
+
+| Warnungskarte | Auf der Karte „Warnungen“ werden die Warnungen der ONTAP -Tools nach Typ aufgelistet, einschließlich der Warnungen auf HA-Knotenebene.  Sie können die Liste der Warnungen anzeigen, indem Sie auf den Zähltext (Hyperlink) klicken.  Über den Link gelangen Sie zur Seite mit der nach dem ausgewählten Typ gefilterten Warnmeldungsansicht. 
+
+
+| vCenter | Die vCenter-Karte zeigt den Integritätsstatus der vCenter im System. 
+
+
+| Speicher-Backends | Die Karte „Storage-Backends“ zeigt den Integritätsstatus der Storage-Backends im System. 
+
+
+| ONTAP -Tools-Knotenkarte | Die Knotenkarte des ONTAP -Tools zeigt die Liste der Knoten mit Knotennamen, Knoten-VM-Namen, Status und allen netzwerkbezogenen Daten.  Sie können *Details anzeigen* auswählen, um die zusätzlichen Details zum ausgewählten Knoten anzuzeigen.  [HINWEIS] In einem Nicht-HA-Setup wird nur ein Knoten angezeigt.  Im HA-Setup werden drei Knoten angezeigt. 
+|===

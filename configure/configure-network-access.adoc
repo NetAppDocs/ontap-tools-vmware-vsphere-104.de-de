@@ -1,0 +1,24 @@
+---
+permalink: configure/configure-network-access.html 
+sidebar: sidebar 
+keywords: network access configuration, export policy, mount operation, ESXi hosts 
+summary: Wenn Sie den Netzwerkzugriff nicht konfiguriert haben, werden alle erkannten IP-Adressen des ESXi-Hosts standardmäßig zur Exportrichtlinie hinzugefügt. 
+---
+= Konfigurieren des Netzwerkzugriffs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie den Netzwerkzugriff nicht konfiguriert haben, werden alle erkannten IP-Adressen des ESXi-Hosts standardmäßig zur Exportrichtlinie hinzugefügt.  Sie können es so konfigurieren, dass der Exportrichtlinie einige bestimmte IP-Adressen hinzugefügt und der Rest ausgeschlossen wird.  Wenn Sie jedoch einen Mountvorgang auf den ausgeschlossenen ESXi-Hosts durchführen, schlägt der Vorgang fehl.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Wählen Sie auf der Verknüpfungsseite im Abschnitt „Plug-Ins“ * NetApp ONTAP -Tools* aus.
+. Navigieren Sie im linken Bereich der ONTAP -Tools zu *Einstellungen* > *Netzwerkzugriff verwalten* > *Bearbeiten*.
++
+Um mehrere IP-Adressen hinzuzufügen, trennen Sie die Liste durch Kommas, Bereiche, Classless Inter-Domain Routing (CIDR) oder eine Kombination aus allen dreien.
+
+. Wählen Sie *Speichern*.
+

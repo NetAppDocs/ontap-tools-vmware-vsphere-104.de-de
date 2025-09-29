@@ -1,0 +1,46 @@
+---
+permalink: configure/dashboard-overview.html 
+sidebar: sidebar 
+keywords: user roles 
+summary: Wenn Sie im Abschnitt „Verknüpfungen“ des vCenter-Clients das Plug-In-Symbol „ONTAP tools for VMware vSphere“ auswählen, navigiert die Benutzeroberfläche zur Übersichtsseite.  Diese Seite fungiert als Dashboard und bietet Ihnen eine Übersicht über die ONTAP tools for VMware vSphere Plug-in. 
+---
+= ONTAP tools for VMware vSphere – Dashboard-Übersicht
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie im Abschnitt „Verknüpfungen“ des vCenter-Clients das Plug-In-Symbol „ONTAP tools for VMware vSphere“ auswählen, navigiert die Benutzeroberfläche zur Übersichtsseite.  Diese Seite fungiert als Dashboard und bietet Ihnen eine Übersicht über die ONTAP tools for VMware vSphere Plug-in.
+
+Bei der Einrichtung im Enhanced Linked Mode (ELM) wird das Dropdown-Menü zur Auswahl des vCenter-Servers angezeigt und Sie können einen gewünschten vCenter-Server auswählen, um die entsprechenden Daten anzuzeigen. Dieses Dropdown-Menü ist für alle anderen Listenansichten des Plug-Ins verfügbar. Die auf einer Seite getroffene vCenter Server-Auswahl bleibt auf allen Registerkarten des Plug-Ins erhalten.image:../media/remote-plugin-dashboard.png["Dashboard-Übersicht"]
+
+Von der Übersichtsseite aus können Sie die Aktion *Discovery* ausführen.  Die Erkennungsaktion führt die Erkennung auf vCenter-Ebene aus, um alle neu hinzugefügten oder aktualisierten Speicher-Backends, Hosts, Datenspeicher und Schutzstatus/-beziehungen zu erkennen.  Sie können eine On-Demand-Erkennung von Entitäten ausführen, ohne auf die geplante Erkennung warten zu müssen.
+
+
+NOTE: Die Aktionsschaltfläche wird nur aktiviert, wenn Sie über die Berechtigung zum Ausführen der Erkennungsaktion verfügen.
+
+Nachdem die Ermittlungsanfrage übermittelt wurde, können Sie den Fortschritt der Aktion im Bereich „Letzte Aufgaben“ verfolgen.
+
+Das Dashboard verfügt über mehrere Karten, die verschiedene Elemente des Systems anzeigen.  Die folgende Tabelle zeigt die verschiedenen Karten und ihre Bedeutung.
+
+|===
+
+
+| *Karte* | *Beschreibung* 
+
+
+| Status | Die Statuskarte zeigt die Anzahl der Speicher-Backends und den allgemeinen Integritätsstatus der Speicher-Backends und des VASA-Anbieters.  Der Status der Speicher-Backends wird „*Healthy*“ angezeigt, wenn der Status aller Speicher-Backends normal ist, und „Unhealthy*“, wenn bei einem der Speicher-Backends ein Problem vorliegt (Status „Unbekannt/Nicht erreichbar/Beeinträchtigt“).  Wählen Sie den Tooltip aus, um die Statusdetails der Speicher-Backends zu öffnen.  Sie können ein beliebiges Speicher-Backend auswählen, um weitere Details zu erhalten.  Der Link *Andere VASA-Provider-Status* zeigt den aktuellen Status des VASA-Providers, der im vCenter Server registriert ist. 
+
+
+| Speicher-Backends – Kapazität | Diese Karte zeigt die aggregierte genutzte und verfügbare Kapazität aller Speicher-Backends für die ausgewählte vCenter Server-Instanz. Bei ASA R2-Speichersystemen werden die Kapazitätsdaten nicht angezeigt, da es sich um ein disaggregiertes System handelt. 
+
+
+| Virtuelle Maschinen | Diese Karte zeigt die Top 10 VMs, sortiert nach Leistungsmetrik.  Sie können die Kopfzeile auswählen, um die Top 10 VMs für die ausgewählte Metrik in aufsteigender oder absteigender Reihenfolge sortiert zu erhalten.  Die auf der Karte vorgenommenen Sortier- und Filteränderungen bleiben bestehen, bis Sie den Browser-Cache ändern oder leeren. 
+
+
+| Datenspeicher | Diese Karte zeigt die Top 10 Datenspeicher, sortiert nach Leistungskennzahlen.  Sie können die Kopfzeile auswählen, um die Top 10 Datenspeicher für die ausgewählte Metrik in aufsteigender oder absteigender Reihenfolge sortiert zu erhalten.  Die auf der Karte vorgenommenen Sortier- und Filteränderungen bleiben bestehen, bis Sie den Browser-Cache ändern oder leeren.  Es gibt ein Dropdown-Menü „Datenspeichertyp“, in dem Sie den Typ der Datenspeicher auswählen können – NFS, VMFS oder vVols. 
+
+
+| ESXi-Host-Compliance-Karte | Diese Karte zeigt den Gesamtkonformitätsstatus aller ESXi-Hosteinstellungen (für das ausgewählte vCenter) in Bezug auf die empfohlenen NetApp -Hosteinstellungen nach Einstellungsgruppe/Kategorie.  Sie können den Link *Empfohlene Einstellungen anwenden* auswählen, um die empfohlenen Einstellungen anzuwenden.  Sie können den Konformitätsstatus der Hosts auswählen, um die Liste der Hosts anzuzeigen. 
+|===

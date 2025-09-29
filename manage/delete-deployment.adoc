@@ -1,0 +1,31 @@
+---
+permalink: manage/delete-deployment.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Nach dem Löschen der ONTAP tools for VMware vSphere Bereitstellung sollten Sie die während der Bereitstellung erstellten FlexVolumes bereinigen. Wenn Sie einen dedizierten ONTAP Cluster für Bereitstellungen verwendet haben, sollten Sie die FlexVolumes bereinigen, da die Bereitstellung viele ungenutzte FlexVolumes erzeugt, was zu Leistungseinbußen führt. 
+---
+= FlexVol -Volumes entfernen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie einen dedizierten ONTAP Cluster für ONTAP Tools für die VMware-Bereitstellung verwenden, werden viele ungenutzte FlexVol Volumes erstellt.  Nachdem Sie ONTAP tools for VMware vSphere entfernt haben, sollten Sie die FlexVol Volumes entfernen, um mögliche Leistungseinbußen zu vermeiden.
+
+.Schritte
+. Bestimmen Sie die ONTAP tools for VMware vSphere Bereitstellungstyp aus der ersten Knoten-VM.
++
+_cat /opt/netapp/meta/ansible_vars.yaml | grep -i Protokoll_
+
++
+Wenn es sich um eine iSCSI-Bereitstellung handelt, müssen Sie auch igroups löschen.
+
+. Rufen Sie die Liste der FlexVol -Volumes ab.
++
+_kubectl beschreibe persistente Volumes | grep internalName | awk -F'=' '{print $2}'_
+
+. Entfernen Sie die VMs vom vCenter Server. Siehe https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/managing-virtual-machinesvsphere-vm-admin/adding-and-removing-virtual-machinesvsphere-vm-admin.html#GUID-376174FE-F936-4BE4-B8C2-48EED42F110B-en["Entfernen und erneutes Registrieren von VMs und VM-Vorlagen"] .
+. Löschen Sie FlexVol -Volumes. Siehe https://docs.netapp.com/us-en/ontap/volumes/delete-flexvol-task.html["Löschen eines FlexVol volume"] .  Geben Sie im CLI-Befehl zum Löschen eines Volumes den genauen Namen des FlexVol -Volumes an.
+. Löschen Sie im Falle einer iSCSI-Bereitstellung SAN-igroups aus dem ONTAP -Speichersystem. Siehe https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["Anzeigen und Verwalten von SAN-Initiatoren und igroups"] .
+

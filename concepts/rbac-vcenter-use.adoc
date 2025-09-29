@@ -1,0 +1,94 @@
+---
+permalink: concepts/rbac-vcenter-use.html 
+sidebar: sidebar 
+keywords: vcenter, vcenter server, vcenter server rbac, use rbac 
+summary: Es gibt mehrere Aspekte der ONTAP tools for VMware vSphere 10 RBAC-Implementierung mit vCenter Server, die Sie berücksichtigen sollten, bevor Sie sie in einer Produktionsumgebung verwenden. 
+---
+= Verwenden Sie vCenter Server RBAC mit ONTAP tools for VMware vSphere 10
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es gibt mehrere Aspekte der ONTAP tools for VMware vSphere 10 RBAC-Implementierung mit vCenter Server, die Sie berücksichtigen sollten, bevor Sie sie in einer Produktionsumgebung verwenden.
+
+
+
+== vCenter-Rollen und das Administratorkonto
+
+Sie müssen die benutzerdefinierten vCenter Server-Rollen nur definieren und verwenden, wenn Sie den Zugriff auf die vSphere-Objekte und die zugehörigen Verwaltungsaufgaben einschränken möchten.  Wenn keine Zugriffsbeschränkung erforderlich ist, können Sie stattdessen ein Administratorkonto verwenden.  Jedes Administratorkonto wird mit der Administratorrolle auf der obersten Ebene der Objekthierarchie definiert.  Dies bietet vollständigen Zugriff auf die vSphere-Objekte, einschließlich derjenigen, die von ONTAP tools for VMware vSphere 10 hinzugefügt wurden.
+
+
+
+== vSphere-Objekthierarchie
+
+Das vSphere-Objektinventar ist hierarchisch organisiert.  Sie können sich beispielsweise wie folgt in der Hierarchie nach unten bewegen:
+
+`vCenter Server`--> `Datacenter` --> `Cluster` --> `ESXi host` --> `Virtual Machine`
+
+Alle Berechtigungen werden in der vSphere-Objekthierarchie validiert, mit Ausnahme der VAAI-Plug-In-Vorgänge, die anhand des ESXi-Zielhosts validiert werden.
+
+
+
+== In den ONTAP tools for VMware vSphere 10 enthaltene Rollen
+
+Um die Arbeit mit vCenter Server RBAC zu vereinfachen, bieten ONTAP tools for VMware vSphere vordefinierte Rollen, die auf verschiedene Verwaltungsaufgaben zugeschnitten sind.
+
+
+NOTE: Sie können bei Bedarf neue benutzerdefinierte Rollen erstellen.  In diesem Fall sollten Sie eine der vorhandenen ONTAP -Tool-Rollen klonen und nach Bedarf bearbeiten.  Nach dem Vornehmen der Konfigurationsänderungen müssen sich die betroffenen vSphere-Client-Benutzer abmelden und erneut anmelden, um die Änderungen zu aktivieren.
+
+Um die ONTAP tools for VMware vSphere -Rollen anzuzeigen, wählen Sie oben im vSphere-Client *Menü* und klicken Sie auf *Verwaltung* und dann links auf *Rollen*.  Es gibt drei vordefinierte Rollen, die unten beschrieben werden.
+
+.NetApp ONTAP tools for VMware vSphere Administrator
+Bietet alle nativen vCenter Server-Berechtigungen und ONTAP Tool-spezifischen Berechtigungen, die zum Ausführen zentraler ONTAP tools for VMware vSphere Administratoraufgaben erforderlich sind.
+
+.NetApp ONTAP tools for VMware vSphere Read Only
+Bietet schreibgeschützten Zugriff auf ONTAP -Tools.  Diese Benutzer können keine ONTAP tools for VMware vSphere Aktionen ausführen, für die der Zugriff kontrolliert wird.
+
+.NetApp ONTAP tools for VMware vSphere Provision
+Bietet einige der nativen vCenter Server-Berechtigungen und ONTAP Tool-spezifischen Berechtigungen, die für die Speicherbereitstellung erforderlich sind.  Sie können die folgenden Aufgaben ausführen:
+
+* Erstellen neuer Datenspeicher
+* Verwalten von Datenspeichern
+
+
+
+
+== vSphere-Objekte und ONTAP -Speicher-Backends
+
+Die beiden RBAC-Umgebungen arbeiten zusammen.  Beim Ausführen einer Aufgabe in der vSphere-Clientschnittstelle werden zuerst die für vCenter Server definierten ONTAP -Toolrollen überprüft.  Wenn der Vorgang von vSphere zugelassen wird, werden die ONTAP Rollenberechtigungen geprüft.  Dieser zweite Schritt wird basierend auf der ONTAP Rolle ausgeführt, die dem Benutzer beim Erstellen und Konfigurieren des Speicher-Backends zugewiesen wurde.
+
+
+
+== Arbeiten mit vCenter Server RBAC
+
+Beim Arbeiten mit den Privilegien und Berechtigungen des vCenter Servers sind einige Dinge zu beachten.
+
+
+
+=== Erforderliche Berechtigungen
+
+Um auf die Benutzeroberfläche der ONTAP tools for VMware vSphere 10 zugreifen zu können, benötigen Sie das für ONTAP -Tools spezifische _Anzeige_-Privileg.  Wenn Sie sich ohne diese Berechtigung bei vSphere anmelden und auf das NetApp -Symbol klicken, zeigt ONTAP tools for VMware vSphere eine Fehlermeldung an und verhindert, dass Sie auf die Benutzeroberfläche zugreifen können.
+
+Die Zuweisungsebene in der vSphere-Objekthierarchie bestimmt, auf welche Teile der Benutzeroberfläche Sie zugreifen können.  Wenn Sie dem Stammobjekt die Berechtigung „Anzeigen“ zuweisen, können Sie durch Klicken auf das NetApp -Symbol auf ONTAP tools for VMware vSphere zugreifen.
+
+Sie können die Anzeigeberechtigung stattdessen einer anderen niedrigeren vSphere-Objektebene zuweisen.  Dadurch werden jedoch die ONTAP tools for VMware vSphere -Menüs eingeschränkt, auf die Sie zugreifen und die Sie verwenden können.
+
+
+
+=== Berechtigungen zuweisen
+
+Sie müssen vCenter Server-Berechtigungen verwenden, wenn Sie den Zugriff auf die vSphere-Objekte und -Aufgaben beschränken möchten.  Wo Sie in der vSphere-Objekthierarchie Berechtigungen zuweisen, bestimmt, welche ONTAP tools for VMware vSphere 10-Aufgaben Benutzer ausführen können.
+
+
+TIP: Sofern Sie keinen restriktiveren Zugriff definieren müssen, empfiehlt es sich im Allgemeinen, Berechtigungen auf der Ebene des Stammobjekts oder des Stammordners zuzuweisen.
+
+Die mit den ONTAP tools for VMware vSphere 10 verfügbaren Berechtigungen gelten für benutzerdefinierte Nicht-vSphere-Objekte, beispielsweise Speichersysteme.  Wenn möglich, sollten Sie diese Berechtigungen den ONTAP tools for VMware vSphere Stammobjekt zuweisen, da es kein vSphere-Objekt gibt, dem Sie sie zuweisen können.  Beispielsweise sollte jede Berechtigung, die ein ONTAP tools for VMware vSphere Privileg zum „Hinzufügen/Ändern/Entfernen von Speichersystemen“ umfasst, auf der Stammobjektebene zugewiesen werden.
+
+Wenn Sie eine Berechtigung auf einer höheren Ebene in der Objekthierarchie definieren, können Sie die Berechtigung so konfigurieren, dass sie weitergegeben und von den untergeordneten Objekten geerbt wird.  Bei Bedarf können Sie den untergeordneten Objekten zusätzliche Berechtigungen zuweisen, die die vom übergeordneten Objekt geerbten Berechtigungen überschreiben.
+
+Sie können eine Berechtigung jederzeit ändern.  Wenn Sie Berechtigungen innerhalb einer Berechtigung ändern, müssen sich die mit der Berechtigung verknüpften Benutzer von vSphere abmelden und erneut anmelden, um die Änderung zu aktivieren.

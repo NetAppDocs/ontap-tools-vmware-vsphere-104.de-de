@@ -1,0 +1,127 @@
+---
+permalink: manage/edit-hostcluster-protection.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: Sie können die SnapMirror -Beziehungen des geschützten Hostclusters bearbeiten.  Sie können die Beziehungen hinzufügen, ändern und löschen.  Sie können den Namen der Konsistenzgruppe jedoch nicht bearbeiten. 
+---
+= Geschützten Hostcluster ändern
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Im Rahmen des Änderungsschutzes können Sie folgende Aufgaben durchführen.  Sie können alle Änderungen im selben Workflow durchführen.
+
+* Fügen Sie dem geschützten Cluster neue Datenspeicher oder Hosts hinzu.
+* Fügen Sie den Schutzeinstellungen neue SnapMirror -Beziehungen hinzu.
+* Löschen Sie vorhandene SnapMirror -Beziehungen aus den Schutzeinstellungen.
+* Ändern Sie eine vorhandene SnapMirror -Beziehung.
+
+
+
+
+== Überwachen des Hostclusterschutzes
+
+Verwenden Sie dieses Verfahren, um den Status des Hostclusterschutzes zu überwachen.  Sie können jeden geschützten Hostcluster zusammen mit seinem Schutzstatus, den SnapMirror -Beziehungen, Datenspeichern und dem entsprechenden SnapMirror Status überwachen.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*.
++
+Das Symbol unter der Schutzspalte zeigt den Status des Schutzes an
+
+. Bewegen Sie den Mauszeiger über das Symbol, um weitere Details anzuzeigen.
+
+
+
+
+== Neue Datenspeicher oder Hosts hinzufügen
+
+Verwenden Sie dieses Verfahren, um die neu hinzugefügten Datenspeicher oder Hosts zu schützen.  Sie können dem geschützten Cluster neue Hosts hinzufügen oder mithilfe der nativen vCenter-Benutzeroberfläche neue Datenspeicher auf dem Hostcluster erstellen.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Um die Eigenschaften eines geschützten Clusters zu bearbeiten, können Sie entweder
++
+.. Navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*, wählen Sie das Auslassungsmenü neben dem Cluster und wählen Sie *Bearbeiten* oder
+.. Klicken Sie mit der rechten Maustaste auf einen Hostcluster und wählen Sie * NetApp ONTAP -Tools* > *Cluster schützen*.
+
+
+. Wenn Sie einen Datenspeicher in der nativen Benutzeroberfläche von vCenter erstellt haben, wird dieser Datenspeicher als ungeschützt angezeigt.  Die Benutzeroberfläche zeigt alle Datenspeicher im Cluster und ihren Schutzstatus in einem Dialogfeld an.  Wählen Sie die Schaltfläche *Schützen*, um den vollständigen Schutz zu aktivieren.
+. Wenn Sie einen neuen ESXi-Host hinzugefügt haben, wird der Schutzstatus als teilweise geschützt angezeigt. Wählen Sie das Auslassungsmenü unter den SnapMirror -Einstellungen und wählen Sie *Bearbeiten*, um die Nähe des neu hinzugefügten ESXi-Hosts festzulegen.
++
+
+NOTE: Bei asynchronen Beziehungen wird die Bearbeitungsaktion nicht unterstützt, da Sie die Ziel-SVM für den tertiären Standort nicht derselben ONTAP -Tools-Instanz hinzufügen können. Sie können jedoch den Systemmanager oder die CLI der Ziel-SVM verwenden, um die Beziehungskonfiguration zu ändern.
+
+. Wählen Sie *Speichern*, nachdem Sie die erforderlichen Änderungen vorgenommen haben.
+. Sie können die Änderungen im Fenster *Cluster schützen* sehen.
+
+
+Eine vCenter-Aufgabe wird erstellt und Sie können den Fortschritt im Bereich *Letzte Aufgabe* verfolgen.
+
+
+
+== Fügen Sie eine neue SnapMirror -Beziehung hinzu
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Um die Eigenschaften eines geschützten Clusters zu bearbeiten, können Sie entweder
++
+.. Navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*, wählen Sie das Auslassungsmenü neben dem Cluster und wählen Sie *Bearbeiten* oder
+.. Klicken Sie mit der rechten Maustaste auf einen Hostcluster und wählen Sie * NetApp ONTAP -Tools* > *Cluster schützen*.
+
+
+. Wählen Sie *Beziehung hinzufügen*.
+. Fügen Sie eine neue Beziehung entweder als *Asynchronous*- oder *AutomatedFailOverDuplex*-Richtlinientyp hinzu.
+. Wählen Sie *Schützen*.
++
+Sie können die Änderungen im Fenster *Cluster schützen* sehen.
+
+
+
+Eine vCenter-Aufgabe wird erstellt und Sie können den Fortschritt im Bereich *Letzte Aufgabe* verfolgen.
+
+
+
+== Löschen einer bestehenden SnapMirror Beziehung
+
+Um eine asynchrone SnapMirror -Beziehung zu löschen, muss ein sekundärer Site-SVM oder Cluster als Speicher-Backend auf ONTAP tools for VMware vSphere hinzugefügt werden.  Sie können nicht alle SnapMirror -Beziehungen löschen.  Wenn Sie eine Beziehung löschen, wird auch die entsprechende Beziehung im ONTAP Cluster entfernt.  Wenn Sie eine AutomatedFailOverDuplex SnapMirror -Beziehung löschen, wird die Zuordnung der Datenspeicher auf dem Ziel aufgehoben und Konsistenzgruppe, LUNs, Volumes und igroups werden aus dem ONTAP Zielcluster entfernt.
+
+Das Löschen der Beziehung löst einen erneuten Scan auf der sekundären Site aus, um die nicht zugeordnete LUN als aktiven Pfad von den Hosts zu entfernen.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Um die Eigenschaften eines geschützten Clusters zu bearbeiten, können Sie entweder
++
+.. Navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*, wählen Sie das Auslassungsmenü neben dem Cluster und wählen Sie *Bearbeiten* oder
+.. Klicken Sie mit der rechten Maustaste auf einen Hostcluster und wählen Sie * NetApp ONTAP -Tools* > *Cluster schützen*.
+
+
+. Wählen Sie das Auslassungsmenü unter den SnapMirror -Einstellungen und wählen Sie *Löschen*.
+
+
+Eine vCenter-Aufgabe wird erstellt und Sie können den Fortschritt im Bereich *Letzte Aufgabe* verfolgen.
+
+
+
+== Ändern einer vorhandenen SnapMirror -Beziehung
+
+Um eine asynchrone SnapMirror Beziehung zu ändern, sollte ein sekundärer Site-SVM oder Cluster als Speicher-Backend auf ONTAP tools for VMware vSphere hinzugefügt werden.  Wenn es sich um eine AutomatedFailOverDuplex SnapMirror -Beziehung handelt, können Sie die Host-Nähe bei einheitlicher Konfiguration und den Host-Zugriff bei nicht einheitlicher Konfiguration ändern.  Sie können die Richtlinientypen „Asynchronous“ und „AutomatedFailOverDuplex“ nicht austauschen.  Sie können die Nähe oder den Zugriff für die neu erkannten Hosts im Cluster festlegen.
+
+
+NOTE: Sie können eine vorhandene asynchrone SnapMirror Beziehung nicht bearbeiten.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Um die Eigenschaften eines geschützten Clusters zu bearbeiten, können Sie entweder
++
+.. Navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*, wählen Sie das Auslassungsmenü neben dem Cluster und wählen Sie *Bearbeiten* oder
+.. Klicken Sie mit der rechten Maustaste auf einen Hostcluster und wählen Sie * NetApp ONTAP -Tools* > *Cluster schützen*.
+
+
+. Wenn der Richtlinientyp „AutomatedFailOverDuplex“ ausgewählt ist, fügen Sie Details zur Hostnähe oder zum Hostzugriff hinzu.
+. Wählen Sie die Schaltfläche *Schützen*.
+
+
+Eine vCenter-Aufgabe wird erstellt und Sie können den Fortschritt im Bereich *Letzte Aufgabe* verfolgen.

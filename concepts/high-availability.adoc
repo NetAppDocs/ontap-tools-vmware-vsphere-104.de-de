@@ -1,0 +1,33 @@
+---
+permalink: concepts/high-availability.html 
+sidebar: sidebar 
+keywords:  
+summary: 'ONTAP tools for VMware vSphere unterstützen eine Hochverfügbarkeitskonfiguration (HA), um bei einem Ausfall die unterbrechungsfreie Funktionalität der ONTAP tools for VMware vSphere zu gewährleisten.' 
+---
+= Hohe Verfügbarkeit für ONTAP tools for VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere unterstützen eine Hochverfügbarkeitskonfiguration (HA), um bei einem Ausfall die unterbrechungsfreie Funktionalität der ONTAP tools for VMware vSphere zu gewährleisten.
+
+Die Hochverfügbarkeitslösung (HA) ermöglicht eine schnelle Wiederherstellung nach Ausfällen, die durch Folgendes verursacht werden:
+
+* Hostfehler
++
+
+NOTE: Es wird nur der Ausfall eines einzelnen Knotens unterstützt.
+
+* Netzwerkfehler
+* Ausfall der virtuellen Maschine (Ausfall des Gastbetriebssystems)
+* Anwendungsabsturz (ONTAP -Tools)
+
+
+Für ONTAP tools for VMware vSphere ist keine zusätzliche Konfiguration erforderlich, um Hochverfügbarkeit (HA) bereitzustellen.
+
+
+NOTE: ONTAP tools for VMware vSphere unterstützen vCenter HA nicht.
+
+Um die HA-Funktion zu aktivieren, sollten CPU Hot Add und Memory Hot Plug während der Bereitstellung oder später in den ONTAP tools for VMware vSphere VM-Einstellungen aktiviert werden.

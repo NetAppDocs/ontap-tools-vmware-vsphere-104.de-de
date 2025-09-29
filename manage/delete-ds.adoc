@@ -1,0 +1,47 @@
+---
+permalink: manage/delete-ds.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: Die Aktion „Datenspeicher löschen“ löscht den Datenspeicher.  Bei NFS- oder VMFS-Datenspeichern wird ein Dialogfeld mit der Liste der VMs angezeigt, die den Datenspeicher verwenden. 
+---
+= Datenspeicher löschen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die Aktion „Speicher aus Datenspeicher entfernen“ wird auf allen ONTAP tools for VMware vSphere erkannte oder verwaltete vVols -Datenspeicher im vCenter Server unterstützt.  Diese Aktion ermöglicht das Entfernen von Volumes aus den vVols Datenspeichern.
+
+Die Option zum Entfernen ist deaktiviert, wenn sich auf einem bestimmten Volume vVols befinden.  Zusätzlich zum Entfernen von Volumes aus dem Datenspeicher können Sie das ausgewählte Volume im ONTAP -Speicher löschen.
+
+Die Aufgabe „Datastore löschen“ aus den ONTAP tools for VMware vSphere im vCenter Server führt Folgendes aus:
+
+* Hängt den vVol-Container ab.
+* Bereinigt igroup.  Wenn igroup nicht verwendet wird, wird iqn aus igroup entfernt.
+* Löscht den Vvol-Container.
+* Belässt die Flex-Volumes auf dem Speicherarray.
+
+
+Führen Sie die folgenden Schritte aus, um NFS-, VMFS- oder vVOL-Datenspeicher aus ONTAP -Tools vom vCenter Server zu löschen:
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Klicken Sie mit der rechten Maustaste auf ein Hostsystem, einen Hostcluster oder ein Rechenzentrum und wählen Sie * NetApp ONTAP Tools* > *Datenspeicher löschen*.
++
+
+NOTE: Sie können die Datenspeicher nicht löschen, wenn dieser Datenspeicher von virtuellen Maschinen verwendet wird.  Sie müssen die virtuellen Maschinen in einen anderen Datenspeicher verschieben, bevor Sie den Datenspeicher löschen.  Sie können das Kontrollkästchen „Volume löschen“ nicht aktivieren, wenn der Datenspeicher zu einem geschützten Hostcluster gehört.
+
++
+.. Bei NFS- oder VMFS-Datenspeichern wird ein Dialogfeld mit der Liste der VMs angezeigt, die den Datenspeicher verwenden.
+.. Wenn der VMFS-Datenspeicher auf ASA R2-Systemen erstellt wird und Teil des Schutzes ist, müssen Sie den Schutz des Datenspeichers aufheben, bevor Sie ihn löschen.
+.. Bei vVols -Datenspeichern löscht die Aktion „Datenspeicher löschen“ den Datenspeicher nur, wenn ihm keine vVols zugeordnet sind.  Das Dialogfeld „Datenspeicher löschen“ bietet eine Option zum Löschen von Volumes aus dem ONTAP Cluster.
+.. Bei vVols -Datenspeichern auf Basis von ASA R2-Systemen ist das Kontrollkästchen zum Löschen der Sicherungsvolumes nicht anwendbar.
+
+
+. Um die Sicherungsvolumes auf dem ONTAP Speicher zu löschen, wählen Sie *Volumes auf dem ONTAP Cluster löschen*.
++
+
+NOTE: Sie können das Volume auf dem ONTAP Cluster für einen VMFS-Datenspeicher, der Teil des geschützten Hostclusters ist, nicht löschen.
+
+

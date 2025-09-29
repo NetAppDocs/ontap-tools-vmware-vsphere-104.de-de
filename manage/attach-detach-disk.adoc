@@ -1,0 +1,49 @@
+---
+permalink: manage/attach-detach-disk.html 
+sidebar: sidebar 
+keywords:  
+summary: Schließen Sie eine Datenfestplatte an eine virtuelle Maschine an, um die Speicherkapazität zu erweitern. 
+---
+= Anfügen oder Trennen eines Datenträgers an eine virtuelle Maschine
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Anfügen eines Datenträgers an eine virtuelle Maschine
+
+Schließen Sie eine Datenfestplatte an eine virtuelle Maschine an, um die Speicherkapazität zu erweitern.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Klicken Sie mit der rechten Maustaste auf eine virtuelle Maschine im Inventar und wählen Sie *Einstellungen bearbeiten*.
+. Wählen Sie auf der Registerkarte *Virtuelle Hardware* die Option *Vorhandene Festplatte* aus.
+. Wählen Sie die virtuelle Maschine aus, auf der sich die Festplatte befindet.
+. Wählen Sie die Festplatte aus, die Sie anschließen möchten, und wählen Sie *OK*
+
+
+.Ergebnis
+Die Festplatte wird in der Liste der virtuellen Hardwaregeräte angezeigt.
+
+
+
+== Trennen Sie einen Datenträger von der virtuellen Maschine
+
+Sie können eine an eine virtuelle Maschine angeschlossene Datenfestplatte trennen, wenn sie nicht mehr benötigt wird.  Wenn Sie die Festplatte von der virtuellen Maschine trennen, wird sie nicht automatisch gelöscht; sie verbleibt auf dem ONTAP Speichersystem.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Klicken Sie mit der rechten Maustaste auf eine virtuelle Maschine im Inventar und wählen Sie *Einstellungen bearbeiten*.
+. Bewegen Sie den Zeiger über die Festplatte und wählen Sie *Entfernen*.
++
+
+NOTE: Der Datenträger wird aus der virtuellen Maschine entfernt. Wenn andere virtuelle Maschinen den Datenträger gemeinsam nutzen, werden die Datenträgerdateien nicht gelöscht.
+
+
+
+.Ähnliche Informationen
+https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-virtual-machine-administration-guide-7-0/configuring-virtual-machine-hardwarevm-admin/virtual-disk-configurationvm-admin/add-a-hard-disk-to-a-virtual-machinevm-admin/add-a-new-hard-disk-to-a-virtual-machinevm-admin.html["Hinzufügen einer neuen Festplatte zu einer virtuellen Maschine"]
+
+https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-virtual-machine-administration-guide-7-0/configuring-virtual-machine-hardwarevm-admin/virtual-disk-configurationvm-admin/add-a-hard-disk-to-a-virtual-machinevm-admin/add-an-existing-hard-disk-to-a-virtual-machinevm-admin.html["Hinzufügen einer vorhandenen Festplatte zu einer virtuellen Maschine"]

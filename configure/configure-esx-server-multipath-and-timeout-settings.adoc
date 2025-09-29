@@ -1,0 +1,104 @@
+---
+permalink: configure/configure-esx-server-multipath-and-timeout-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP tools for VMware vSphere prüfen und legen die Multipathing-Einstellungen des ESXi-Hosts und die HBA-Timeout-Einstellungen fest, die am besten mit NetApp -Speichersystemen funktionieren. 
+---
+= Konfigurieren der ESXi-Hosteinstellungen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durch die Konfiguration der Multipfad- und Timeout-Einstellungen des ESXi-Servers wird eine hohe Verfügbarkeit und Datenintegrität gewährleistet, indem bei einem Ausfall eines primären Pfads nahtlos auf einen Sicherungsspeicherpfad umgeschaltet werden kann.
+
+
+
+== Konfigurieren der Multipath- und Timeout-Einstellungen des ESXi-Servers
+
+ONTAP tools for VMware vSphere prüfen und legen die Multipath-Einstellungen des ESXi-Hosts und die HBA-Timeout-Einstellungen fest, die am besten mit NetApp -Speichersystemen funktionieren.
+
+*Über diese Aufgabe*
+
+Abhängig von Ihrer Konfiguration und Systemauslastung kann dieser Vorgang lange dauern.  Der Aufgabenfortschritt wird im Bereich „Letzte Aufgaben“ angezeigt.
+
+.Schritte
+. Wählen Sie auf der Homepage des VMware vSphere-Webclients *Hosts und Cluster* aus.
+. Klicken Sie mit der rechten Maustaste auf einen Host und wählen Sie * NetApp ONTAP -Tools* > *Hostdaten aktualisieren*.
+. Wählen Sie auf der Verknüpfungsseite des VMware vSphere-Webclients im Abschnitt „Plug-ins“ die Option „NetApp ONTAP -Tools“ aus.
+. Gehen Sie in der Übersicht (Dashboard) der ONTAP tools for VMware vSphere Plug-In zur Karte *ESXi-Host-Compliance*.
+. Wählen Sie den Link *Empfohlene Einstellungen anwenden*.
+. Wählen Sie im Fenster *Empfohlene Hosteinstellungen anwenden* die Hosts aus, die Sie aktualisieren möchten, um den empfohlenen NetApp -Einstellungen zu entsprechen, und wählen Sie *Weiter*.
++
+
+NOTE: Sie können den ESXi-Host erweitern, um die aktuellen Werte anzuzeigen.
+
+. Wählen Sie auf der Einstellungsseite nach Bedarf die empfohlenen Werte aus.
+. Überprüfen Sie im Übersichtsbereich die Werte und wählen Sie *Fertig*.  Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.
+
+
+
+
+== Festlegen von ESXi-Hostwerten
+
+Mithilfe von ONTAP tools for VMware vSphere können Sie Timeouts und andere Werte auf den ESXi-Hosts festlegen, um die beste Leistung und ein erfolgreiches Failover sicherzustellen.  Die von den ONTAP tools for VMware vSphere festgelegten Werte basieren auf internen NetApp Tests.
+
+Sie können die folgenden Werte auf einem ESXi-Host festlegen:
+
+
+
+=== HBA/CNA-Adaptereinstellungen
+
+Setzt die folgenden Parameter auf Standardwerte:
+
+* Disk.QFullSampleSize
+* Disk.QFullThreshold
+* Emulex FC HBA-Timeouts
+* QLogic FC HBA-Timeouts
+
+
+
+
+=== MPIO-Einstellungen
+
+MPIO-Einstellungen definieren die bevorzugten Pfade für NetApp -Speichersysteme.  Sie bestimmen, welche der verfügbaren Pfade optimiert sind (im Gegensatz zu nicht optimierten Pfaden, die das Verbindungskabel durchqueren) und legen den bevorzugten Pfad auf einen dieser Pfade fest.
+
+In Hochleistungsumgebungen oder beim Testen der Leistung mit einem einzelnen LUN-Datenspeicher sollten Sie die Lastausgleichseinstellung der Round-Robin-Pfadauswahlrichtlinie (VMW_PSP_RR) von der IOPS-Standardeinstellung von 1000 auf den Wert 1 ändern.
+
+
+NOTE: Die MPIO-Einstellungen gelten nicht für die Protokolle NVMe, NVMe/FC und NVMe/TCP.
+
+
+
+=== NFS-Einstellungen
+
+|===
+
+
+| Parameter | Setzen Sie diesen Wert auf ... 
+
+
+| Net.TcpipHeapSize | 32 
+
+
+| Net.TcpipHeapMax | 1024 MB 
+
+
+| NFS.MaxVolumes | 256 
+
+
+| NFS41.MaxVolumes | 256 
+
+
+| NFS.MaxQueueDepth | 128 oder höher 
+
+
+| NFS.HeartbeatMaxFailures | 10 
+
+
+| NFS.HeartbeatFrequency | 12 
+
+
+| NFS.HeartbeatTimeout | 5 
+|===

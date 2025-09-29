@@ -1,0 +1,36 @@
+---
+section: protect
+title: Schützen Sie Datenspeicher und virtuelle Maschinen
+entries:
+- title: Schützen Sie sich mit dem Hostclusterschutz
+  url: "/configure/protect-cluster.html"
+- title: Schützen Sie sich mit SRA-Schutz
+  entries:
+  - title: Konfigurieren Sie SRA zum Schutz von Datenspeichern
+    url: "/protect/enable-storage-replication-adapter.html"
+  - title: Konfigurieren von SRA für SAN- und NAS-Umgebungen
+    url: "/protect/configure-storage-replication-adapter-for-san-environment.html"
+  - title: Konfigurieren von SRA für hochskalierte Umgebungen
+    url: "/protect/configure-storage-replication-adapter-for-highly-scaled-environment.html"
+  - title: Konfigurieren von SRA auf der VMware Live Site Recovery-Appliance
+    url: "/protect/configure-on-srm-appliance.html"
+  - title: SRA-Anmeldeinformationen aktualisieren
+    url: "/protect/update-credentials.html"
+  - title: Konfigurieren von geschützten Sites und Wiederherstellungssites
+    url: "/protect/configure-protection-groups.html"
+  - title: Konfigurieren von geschützten Site- und Wiederherstellungs-Site-Ressourcen
+    entries:
+    - title: Konfigurieren von Netzwerkzuordnungen
+      url: "/protect/map-network.html"
+    - title: Konfigurieren von Ordnerzuordnungen
+      url: "/protect/map-folder.html"
+    - title: Konfigurieren von Ressourcenzuordnungen
+      url: "/protect/map-resource.html"
+    - title: Platzhalter-Datenspeicher konfigurieren
+      url: "/protect/configure-placeholder-datastores.html"
+    - title: Konfigurieren Sie SRA mit dem Array-Manager
+      url: "/protect/configure-array-manager.html"
+  - title: Überprüfen der replizierten Speichersysteme
+    url: "/protect/verify-the-replicated-storage-environment.html"
+  - title: Fan-Out-Schutz
+    url: "/protect/fan-out-protection.html"

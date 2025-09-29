@@ -1,0 +1,25 @@
+---
+permalink: manage/resize-datastores.html 
+sidebar: sidebar 
+keywords:  
+summary: Durch die Größenänderung eines Datenspeichers können Sie den Speicherplatz für die Dateien Ihrer virtuellen Maschine vergrößern.  Sie können die Größe eines Datenspeichers ändern, wenn sich Ihre Infrastrukturanforderungen ändern. 
+---
+= Größe des NFS- und VMFS-Datenspeichers ändern
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durch die Größenänderung eines Datenspeichers können Sie den Speicherplatz für die Dateien Ihrer virtuellen Maschine vergrößern.  Sie können die Größe eines Datenspeichers ändern, wenn sich Ihre Infrastrukturanforderungen ändern.
+
+*Über diese Aufgabe*
+
+Sie können nur die Größe eines NFS- und VMFS-Datenspeichers erhöhen.  Ein FlexVol volume , das Teil eines NFS- und VMFS-Datenspeichers ist, kann nicht unter die vorhandene Größe schrumpfen, kann aber um maximal 120 % wachsen.
+
+.Schritte
+. Wählen Sie auf der Startseite des vSphere-Clients *Hosts und Cluster* aus.
+. Wählen Sie im Navigationsbereich das Rechenzentrum aus, das den Datenspeicher enthält.
+. Klicken Sie mit der rechten Maustaste auf den NFS- oder VMFS-Datenspeicher und wählen Sie * NetApp ONTAP Tools* > *Größe des Datenspeichers ändern*.
+. Geben Sie im Dialogfeld „Größe ändern“ eine neue Größe für den Datenspeicher an und wählen Sie *OK*.
+

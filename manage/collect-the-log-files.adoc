@@ -1,0 +1,42 @@
+---
+permalink: manage/collect-the-log-files.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Sie können Protokolldateien für ONTAP tools for VMware vSphere über die in der grafischen Benutzeroberfläche (GUI) von ONTAP tools for VMware vSphere verfügbaren Optionen erfassen.  Der technische Support bittet Sie möglicherweise, die Protokolldateien zu sammeln, um bei der Behebung eines Problems zu helfen.' 
+---
+= Erfassen der Protokolldateien
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Protokolldateien für ONTAP tools for VMware vSphere über die in der Benutzeroberfläche des ONTAP Tools-Managers verfügbaren Optionen sammeln.  Der technische Support bittet Sie möglicherweise, die Protokolldateien zu sammeln, um bei der Behebung eines Problems zu helfen.
+
+
+NOTE: Das Generieren von Protokollen aus dem ONTAP Tools Manager umfasst alle Protokolle für alle vCenter Server-Instanzen.  Das Generieren von Protokollen über die Benutzeroberfläche des vCenter-Clients ist auf den ausgewählten vCenter-Server beschränkt.
+
+.Schritte
+. Starten Sie den ONTAP Tools Manager über einen Webbrowser: `\https://<ONTAPtoolsIP>:8443/virtualization/ui/`
+. Melden Sie sich mit den Administratoranmeldeinformationen für ONTAP tools for VMware vSphere an, die Sie während der Bereitstellung angegeben haben.
+. Wählen Sie *Protokollpakete* aus der Seitenleiste.
++
+Dieser Vorgang kann mehrere Minuten dauern.
+
+. Wählen Sie *Generieren*, um die Protokolldateien zu generieren.
+. Geben Sie die Bezeichnung für das Protokollpaket ein und wählen Sie *Generieren*.
++
+Laden Sie die tar.gz-Datei herunter und senden Sie sie an den technischen Support.
+
+
+
+Führen Sie die folgenden Schritte aus, um ein Protokollpaket mithilfe der vCenter-Client-Benutzeroberfläche zu generieren:
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Gehen Sie auf der Startseite des vSphere-Clients zu *Support* > *Protokollpaket* > *Generieren*.
+. Geben Sie die Bezeichnung des Protokollpakets an und generieren Sie das Protokollpaket. Die Download-Option wird angezeigt, wenn die Dateien generiert werden. Der Download kann einige Zeit dauern.
+
+
+
+NOTE: Das generierte Protokollpaket ersetzt das Protokollpaket, das innerhalb der letzten 3 Tage oder 72 Stunden generiert wurde.

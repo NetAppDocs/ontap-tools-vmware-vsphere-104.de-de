@@ -1,0 +1,30 @@
+---
+permalink: protect/verify-the-replicated-storage-environment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Sie sollten überprüfen, ob die geschützte Site und die Wiederherstellungssite nach der Konfiguration des Storage Replication Adapter (SRA) erfolgreich gekoppelt wurden.  Das replizierte Speichersystem sollte sowohl vom geschützten Standort als auch vom Wiederherstellungsstandort erkennbar sein.' 
+---
+= Überprüfen replizierter Speichersysteme
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie sollten überprüfen, ob die geschützte Site und die Wiederherstellungssite nach der Konfiguration des Storage Replication Adapter (SRA) erfolgreich gekoppelt wurden.  Das replizierte Speichersystem sollte sowohl vom geschützten Standort als auch vom Wiederherstellungsstandort erkennbar sein.
+
+.Bevor Sie beginnen
+* Sie sollten Ihr Speichersystem konfiguriert haben.
+* Sie sollten die geschützte Site und die Wiederherstellungssite mithilfe des VMware Live Site Recovery-Array-Managers gekoppelt haben.
+* Sie sollten die FlexClone -Lizenz und die SnapMirror -Lizenz aktiviert haben, bevor Sie den Test-Failover-Vorgang und den Failover-Vorgang für SRA durchführen.
+* Sie sollten auf Quell- und Zielsites dieselben SnapMirror -Richtlinien und -Zeitpläne haben.
+
+
+.Schritte
+. Melden Sie sich bei Ihrem vCenter Server an.
+. Navigieren Sie zu *Site Recovery* > *Array-basierte Replikation*.
+. Wählen Sie das gewünschte Array-Paar aus und überprüfen Sie die entsprechenden Angaben.
++
+Die Speichersysteme sollten am geschützten Standort und am Wiederherstellungsstandort mit dem Status „Aktiviert“ erkannt werden.
+
+

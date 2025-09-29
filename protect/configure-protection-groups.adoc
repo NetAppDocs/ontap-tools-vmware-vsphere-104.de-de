@@ -1,0 +1,72 @@
+---
+permalink: protect/configure-protection-groups.html 
+sidebar: sidebar 
+keywords:  
+summary: Sie sollten Schutzgruppen erstellen, um eine Gruppe virtueller Maschinen auf der geschützten Site zu schützen. 
+---
+= Konfigurieren von geschützten Sites und Wiederherstellungssites
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie sollten Schutzgruppen erstellen, um eine Gruppe virtueller Maschinen auf der geschützten Site zu schützen.
+
+Wenn Sie einen neuen Datenspeicher hinzufügen, können Sie ihn in die bestehende Datenspeichergruppe aufnehmen oder einen neuen Datenspeicher hinzufügen und ein neues Volume oder eine neue Konsistenzgruppe zum Schutz erstellen. Nachdem Sie einen neuen Datenspeicher zu einer geschützten Konsistenzgruppe oder einem geschützten Volume hinzugefügt haben, aktualisieren Sie SnapMirror und führen Sie die Speichererkennung sowohl auf dem geschützten als auch auf dem Wiederherstellungsstandort durch. Sie können die Erkennung manuell oder nach Zeitplan durchführen, um sicherzustellen, dass der neue Datenspeicher erkannt und geschützt wird.
+
+
+
+== Koppeln Sie geschützte Sites und Wiederherstellungssites
+
+Sie sollten die mit Ihrem vSphere-Client erstellten geschützten Sites und Wiederherstellungssites koppeln, damit der Storage Replication Adapter (SRA) die Speichersysteme erkennen kann.
+
+
+NOTE: Storage Replication Adapter (SRA) unterstützt Fan-Out mit einer Synchronisierungsbeziehung vom Typ „Automated Failover Duplex“ und der asynchronen Beziehung SnapMirror auf der Konsistenzgruppe.  Allerdings wird Fan-Out mit zwei asynchronen SnapMirror auf einer Konsistenzgruppe oder Fan-Out-SnapMirrors auf einem Volume nicht unterstützt.
+
+.Bevor Sie beginnen
+* Sie sollten VMware Live Site Recovery auf den geschützten Sites und Wiederherstellungssites installiert haben.
+* Sie sollten SRA auf den geschützten Sites und Wiederherstellungssites installiert haben.
+
+
+.Schritte
+. Doppelklicken Sie auf der Startseite des vSphere-Clients auf *Site Recovery* und wählen Sie *Sites* aus.
+. Wählen Sie *Objekte* > *Aktionen* > *Sites koppeln*.
+. Geben Sie im Dialogfeld *Site Recovery Manager-Server koppeln* die Adresse des Platform Services Controllers der geschützten Site ein und wählen Sie dann *Weiter*.
+. Führen Sie im Abschnitt „vCenter Server auswählen“ die folgenden Schritte aus:
++
+.. Überprüfen Sie, ob der vCenter Server der geschützten Site als passender Kandidat für die Kopplung angezeigt wird.
+.. Geben Sie die SSO-Administratoranmeldeinformationen ein und wählen Sie dann *Fertig*.
+
+
+. Wählen Sie bei der entsprechenden Aufforderung *Ja* aus, um die Sicherheitszertifikate zu akzeptieren.
+
+
+.Ergebnis
+Sowohl die geschützten als auch die Wiederherstellungssites werden im Dialogfeld „Objekte“ angezeigt.
+
+
+
+== Konfigurieren von Schutzgruppen
+
+.Bevor Sie beginnen
+Sie sollten sicherstellen, dass sowohl die Quell- als auch die Zielsites für Folgendes konfiguriert sind:
+
+* Dieselbe Version von VMware Live Site Recovery installiert
+* Virtuelle Maschinen
+* Gepaarte geschützte Sites und Wiederherstellungssites
+* Quell- und Zieldatenspeicher sollten auf den jeweiligen Sites gemountet werden
+
+
+.Schritte
+. Melden Sie sich bei vCenter Server an und wählen Sie *Site Recovery* > *Schutzgruppen*.
+. Wählen Sie im Bereich *Schutzgruppen* die Option *Neu* aus.
+. Geben Sie einen Namen und eine Beschreibung für die Schutzgruppe und die Richtung an und wählen Sie *Weiter*.
+. Wählen Sie im Feld *Typ* die Option *Typfeldoption...* als Datenspeichergruppen (Array-basierte Replikation) für NFS- und VMFS-Datenspeicher aus. Die Fehlerdomäne besteht ausschließlich aus SVMs mit aktivierter Replikation. Es werden die SVMs angezeigt, die nur Peering implementiert haben und keine Probleme aufweisen.
+. Wählen Sie auf der Registerkarte „Replikationsgruppen“ entweder das aktivierte Array-Paar oder die Replikationsgruppen mit der von Ihnen konfigurierten virtuellen Maschine aus und wählen Sie dann *Weiter*.
++
+Alle virtuellen Maschinen in der Replikationsgruppe werden der Schutzgruppe hinzugefügt.
+
+. Sie können entweder den vorhandenen Wiederherstellungsplan auswählen oder einen neuen erstellen, indem Sie *Zum neuen Wiederherstellungsplan hinzufügen* auswählen.
+. Überprüfen Sie auf der Registerkarte „Bereit zum Abschließen“ die Details der von Ihnen erstellten Schutzgruppe und wählen Sie dann *Fertig stellen* aus.
+

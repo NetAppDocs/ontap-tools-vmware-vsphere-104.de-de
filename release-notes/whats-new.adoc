@@ -1,0 +1,31 @@
+---
+permalink: release-notes/whats-new.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 10.4, ONTAP tools for VMware vSphere' 
+summary: Informieren Sie sich über die neuen Funktionen der ONTAP tools for VMware vSphere 10.4. 
+---
+= Was ist neu in den ONTAP tools for VMware vSphere 10.4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Informieren Sie sich über die neuen Funktionen der ONTAP tools for VMware vSphere 10.4.
+
+[cols="30%,70%"]
+|===
+| Aktualisieren | Beschreibung 
+
+
+| link:../configure/create-datastore.html["Unterstützung für ASA R2-System mit 12 Knoten pro Cluster"] | ONTAP tools for VMware vSphere 10.4 unterstützen Workflows für ASA R2-Speichersysteme mit bis zu 12 Knoten pro Cluster und verbessern so die Effizienz und Skalierbarkeit des Datenmanagements.  Es unterstützt vVols -Datenspeicher mit iSCSI- und FC-Protokoll sowie VMFS-Datenspeicher mit iSCSI-, FC- und NVMe-Protokoll und bietet flexible und erweiterte Speicheroptionen. 
+
+
+| link:../manage/add-ntpserver.html["Verbesserungen der Benutzeroberfläche des ONTAP Tools Manager"] | Sie können jetzt den NTP-Server für eine präzise Zeitsynchronisierung in der gesamten Umgebung aktivieren und die Telemetrieeinstellungen konfigurieren, um die Systemleistung über die ONTAP Tools Manager-Schnittstelle zu überwachen und zu analysieren.  Diese Einstellungen sind in der Wartungskonsole nicht mehr verfügbar. 
+
+
+| Verbesserte Sicherheitsfunktionen | Sicherheitsfunktionen bieten jetzt verbesserten Schutz und Konformität mit Branchenstandards und sorgen für eine robuste und benutzerfreundliche Erfahrung, die Administratoren dabei hilft, VMware-Umgebungen effektiver zu verwalten. 
+
+
+| link:../protect/enable-storage-replication-adapter.html["Erweiterte SRA-Disaster-Recovery-Funktionen"] | ONTAP tools for VMware vSphere 10.4 unterstützen jetzt Disaster Recovery-Vorgänge mithilfe der Site Recovery Appliance (SRA) mit Snapshots mit benutzerdefinierten Namen zusätzlich zu den geplanten SnapMirror -Snapshot-Kopien. 
+|===

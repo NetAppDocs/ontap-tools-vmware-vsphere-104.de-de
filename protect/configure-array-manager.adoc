@@ -1,0 +1,62 @@
+---
+permalink: protect/configure-array-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Sie können den Storage Replication Adapter (SRA) mithilfe des Array Manager-Assistenten von VMware Live Site Recovery konfigurieren, um Interaktionen zwischen VMware Live Site Recovery und virtuellen Speichermaschinen (SVMs) zu ermöglichen.' 
+---
+= Konfigurieren Sie SRA mit dem Array-Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den Storage Replication Adapter (SRA) mithilfe des Array Manager-Assistenten von VMware Live Site Recovery konfigurieren, um Interaktionen zwischen VMware Live Site Recovery und virtuellen Speichermaschinen (SVMs) zu ermöglichen.
+
+.Bevor Sie beginnen
+* Sie sollten die geschützten Sites und Wiederherstellungssites in VMware Live Site Recovery gekoppelt haben.
+* Sie sollten Ihren integrierten Speicher konfiguriert haben, bevor Sie den Array-Manager konfigurieren.
+* Sie sollten die SnapMirror -Beziehungen zwischen den geschützten Sites und den Wiederherstellungssites konfiguriert und repliziert haben.
+* Sie sollten die SVM-Verwaltungs-LIFs aktiviert haben, um Multitenancy zu ermöglichen.
+
+
+SRA unterstützt die Verwaltung auf Cluster- und SVM-Ebene.  Wenn Sie Speicher auf Clusterebene hinzufügen, können Sie alle SVMs im Cluster erkennen und Vorgänge darauf ausführen.  Wenn Sie Speicher auf SVM-Ebene hinzufügen, können Sie nur dieses bestimmte SVM verwalten.
+
+.Schritte
+. Wählen Sie in VMware Live Site Recovery *Array-Manager* > *Array-Manager hinzufügen*.
+. Geben Sie die folgenden Informationen ein, um das Array in VMware Live Site Recovery zu beschreiben:
++
+.. Geben Sie im Feld *Anzeigename* einen Namen zur Identifizierung des Array-Managers ein.
+.. Wählen Sie im Feld *SRA-Typ* * NetApp Storage Replication Adapter für ONTAP* aus.
+.. Geben Sie die Informationen zum Herstellen einer Verbindung mit dem Cluster oder der SVM ein:
++
+*** Wenn Sie eine Verbindung zu einem Cluster herstellen, sollten Sie das Cluster-Management-LIF eingeben.
+*** Wenn Sie eine direkte Verbindung zu einer SVM herstellen, sollten Sie die IP-Adresse des SVM-Verwaltungs-LIF eingeben.
++
+
+NOTE: Beim Konfigurieren des Array-Managers sollten Sie für das Speichersystem dieselbe Verbindung (IP-Adresse) verwenden, die zum Onboarding des Speichersystems in den ONTAP tools for VMware vSphere verwendet wurde.  Wenn die Array-Manager-Konfiguration beispielsweise auf SVM beschränkt ist, sollte der Speicher unter ONTAP tools for VMware vSphere auf SVM-Ebene hinzugefügt werden.
+
+
+
+.. Wenn Sie eine Verbindung zu einem Cluster herstellen, geben Sie den SVM-Namen im Feld *SVM-Name* an oder lassen Sie es leer, um alle SVMs im Cluster zu verwalten.
+.. Geben Sie die zu ermittelnden Volumes in das Feld *Volume-Einschlussliste* ein.
++
+Sie können das Quellvolume am geschützten Standort und das replizierte Zielvolume am Wiederherstellungsstandort eingeben.
+
++
+Wenn Sie beispielsweise das Volume src_vol1 ermitteln möchten, das in einer SnapMirror -Beziehung mit dem Volume dst_vol1 steht, sollten Sie src_vol1 im Feld „geschützte Site“ und dst_vol1 im Feld „Wiederherstellungssite“ angeben.
+
+.. *(Optional)* Geben Sie im Feld *Volume-Ausschlussliste* die Volumes ein, die von der Erkennung ausgeschlossen werden sollen.
++
+Sie können das Quellvolume am geschützten Standort und das replizierte Zielvolume am Wiederherstellungsstandort eingeben.
+
++
+Wenn Sie beispielsweise das Volume _src_vol1_ ausschließen möchten, das in einer SnapMirror -Beziehung mit dem Volume _dst_vol1_ steht, sollten Sie _src_vol1_ im Feld „Geschützter Standort“ und _dst_vol1_ im Feld „Wiederherstellungsstandort“ angeben.
+
+
+
+. Wählen Sie *Weiter*.
+. Überprüfen Sie, ob das Array erkannt und unten im Fenster „Array-Manager hinzufügen“ angezeigt wird, und wählen Sie „Fertig stellen“ aus.
+
+
+Sie können dieselben Schritte für die Wiederherstellungssite ausführen, indem Sie die entsprechenden SVM-Verwaltungs-IP-Adressen und Anmeldeinformationen verwenden.  Überprüfen Sie auf dem Bildschirm „Array-Paare aktivieren“ des Assistenten „Array-Manager hinzufügen“, ob das richtige Array-Paar ausgewählt ist und als zur Aktivierung bereit angezeigt wird.

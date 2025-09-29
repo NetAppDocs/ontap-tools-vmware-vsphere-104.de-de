@@ -1,0 +1,33 @@
+---
+permalink: configure/registration-process.html 
+sidebar: sidebar 
+keywords:  
+summary: Sie können den VASA-Anbieter mithilfe der ONTAP tools for VMware vSphere bei einer vCenter Server-Instanz registrieren. 
+---
+= Registrieren Sie den VASA-Anbieter bei einer vCenter Server-Instanz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können den VASA-Anbieter mithilfe von ONTAP tools for VMware vSphere bei einer vCenter Server-Instanz registrieren.  Im Abschnitt „VASA-Provider-Einstellungen“ wird der Registrierungsstatus des VASA-Providers für den ausgewählten vCenter Server angezeigt.  Stellen Sie bei einer Bereitstellung mit mehreren vCentern sicher, dass Sie für jede vCenter Server-Instanz über benutzerdefinierte CA-Zertifikate verfügen.
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Wählen Sie im Abschnitt „Plug-ins“ *Verknüpfungen* > * NetApp ONTAP Tools*.
+. Wählen Sie *Einstellungen* > *VASA-Anbietereinstellungen*. Der Registrierungsstatus des VASA-Anbieters wird als „Nicht registriert“ angezeigt.
+. Wählen Sie die Schaltfläche *Registrieren*, um den VASA-Anbieter zu registrieren.
+. Geben Sie einen Namen und Anmeldeinformationen für den VASA-Anbieter ein. Der Benutzername darf nur Buchstaben, Zahlen und Unterstriche enthalten. Die Passwortlänge sollte zwischen 8 und 256 Zeichen liegen.
+. Wählen Sie *Registrieren*.
+. Nach einer erfolgreichen Registrierung und Seitenaktualisierung werden Status, Name und Version des registrierten VASA-Anbieters angezeigt.  Nach der Registrierung wird die Aktion „Abmelden“ aktiviert.
+
+
+.Was kommt als nächstes
+Überprüfen Sie, ob der integrierte VASA-Anbieter unter „VASA-Anbieter“ im vCenter-Client aufgeführt ist:
+
+.Schritte
+. Navigieren Sie zur vCenter Server-Instanz.
+. Melden Sie sich mit den Administratoranmeldeinformationen an.
+. Wählen Sie *Speicheranbieter* > *Konfigurieren*.  Überprüfen Sie, ob der integrierte VASA-Anbieter korrekt aufgeführt ist.
+

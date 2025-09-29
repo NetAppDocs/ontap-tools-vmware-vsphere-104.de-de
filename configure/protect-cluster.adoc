@@ -1,0 +1,51 @@
+---
+permalink: configure/protect-cluster.html 
+sidebar: sidebar 
+keywords: vVols datastore,delete vVol 
+summary: ONTAP tools for VMware vSphere verwalten den Schutz von Host-Clustern. 
+---
+= Schützen Sie sich mit dem Hostclusterschutz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere verwalten den Schutz von Host-Clustern.  Unter einem Hostcluster werden alle Datenspeicher geschützt, die zur ausgewählten SVM gehören und auf einem oder mehreren Hosts des Clusters gemountet sind.
+
+.Bevor Sie beginnen
+Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind:
+
+* Der Hostcluster verfügt nur über Datenspeicher von einer SVM.
+* Auf dem Hostcluster gemountete Datenspeicher sollten nicht auf einem Host außerhalb des Clusters gemountet werden.
+* Alle auf dem Hostcluster bereitgestellten Datenspeicher müssen VMFS-Datenspeicher mit iSCSI/FC-Protokoll sein. vVols, NFS- oder VMFS-Datenspeicher mit NVMe/FC- und NVMe/TCP-Protokollen werden nicht unterstützt.
+* Auf dem Hostcluster gemountete FlexVol/LUN-bildende Datenspeicher sollten nicht Teil einer vorhandenen Konsistenzgruppe (CG) sein.
+* Auf dem Hostcluster bereitgestellte FlexVol/LUN-bildende Datenspeicher sollten nicht Teil einer bestehenden SnapMirror -Beziehung sein.
+* Der Hostcluster sollte mindestens einen Datenspeicher haben.
+
+
+.Schritte
+. Melden Sie sich beim vSphere-Client an.
+. Klicken Sie mit der rechten Maustaste auf einen Hostcluster und wählen Sie * NetApp ONTAP -Tools* > *Cluster schützen*.
+. Im Fenster „Cluster schützen“ werden der Datenspeichertyp und die Details der virtuellen Maschine (VM) des Quellspeichers automatisch eingetragen. Wählen Sie den Link „Datenspeicher“ aus, um die geschützten Datenspeicher anzuzeigen.
+. Geben Sie den *Namen der Konsistenzgruppe* ein.
+. Wählen Sie *Beziehung hinzufügen*.
+. Wählen Sie im Fenster * SnapMirror -Beziehung hinzufügen* die *Zielspeicher-VM* und den *Richtlinientyp* aus.
++
+Der Richtlinientyp kann „Asynchron“ oder „AutomatedFailOverDuplex“ sein.
+
++
+Wenn Sie die SnapMirror -Beziehung als Richtlinie vom Typ „AutomatedFailOverDuplex“ hinzufügen, müssen Sie die Zielspeicher-VM als Speicher-Backend zum selben vCenter hinzufügen, in dem ONTAP tools for VMware vSphere bereitgestellt werden.
+
++
+Beim Richtlinientyp „AutomatedFailOverDuplex“ gibt es einheitliche und nicht einheitliche Hostkonfigurationen. Wenn Sie die Umschalttaste *einheitliche Hostkonfiguration* auswählen, wird die Konfiguration der Hostinitiatorgruppe implizit auf der Zielsite repliziert. Weitere Einzelheiten finden Sie unterlink:../concepts/ontap-tools-concepts-terms.html["Wichtige Konzepte und Begriffe"] .
+
+. Wenn Sie sich für eine nicht einheitliche Hostkonfiguration entscheiden, wählen Sie den Hostzugriff (Quelle/Ziel) für jeden Host innerhalb dieses Clusters aus.
+. Wählen Sie *Hinzufügen*.
+. Im Fenster *Cluster schützen* können Sie den geschützten Cluster während des Erstellungsvorgangs nicht bearbeiten.  Sie können den Schutz löschen und erneut hinzufügen.  Während des Vorgangs „Hostclusterschutz ändern“ ist die Bearbeitungsoption verfügbar. Sie können die Beziehungen mithilfe der Auslassungspunkte-Menüoptionen bearbeiten oder löschen.
+. Wählen Sie die Schaltfläche *Schützen*.
++
+Eine vCenter-Aufgabe wird mit Job-ID-Details erstellt und ihr Fortschritt wird im Bereich „Letzte Aufgaben“ angezeigt.  Dies ist eine asynchrone Aufgabe. Die Benutzeroberfläche zeigt nur den Status der Anforderungsübermittlung an und wartet nicht auf die Fertigstellung der Aufgabe.
+
+. Um die geschützten Host-Cluster anzuzeigen, navigieren Sie zu * NetApp ONTAP Tools* > *Schutz* > *Host-Cluster-Beziehungen*.
+

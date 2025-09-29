@@ -1,0 +1,35 @@
+---
+permalink: manage/storage-view-datastore.html 
+sidebar: sidebar 
+keywords: Remove vVol datastore 
+summary: Die ONTAP Speicheransicht unter der Registerkarte „Konfigurieren“ eines ONTAP tools for VMware vSphere bietet Daten zum Datenspeicher und seinem Volume. 
+---
+= ONTAP Speicheransichten für Datenspeicher
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP tools for VMware vSphere zeigen die ONTAP Speicherseitenansicht der Datenspeicher und ihrer Volumes auf der Registerkarte „Konfigurieren“.
+
+.Schritte
+. Navigieren Sie vom vSphere-Client zum Datenspeicher.
+. Wählen Sie im rechten Bereich die Registerkarte *Konfigurieren*.
+. Wählen Sie * NetApp ONTAP -Tools* > * ONTAP Speicher*.  Je nach Datenspeichertyp ändert sich die Ansicht.  Weitere Informationen finden Sie in der folgenden Tabelle:
+
+
+|===
+
+
+| *Datenspeichertyp* | *Informationen verfügbar* 
+
+
+| NFS-Datenspeicher | Die Seite *Speicherdetails* enthält Informationen zu Speicher-Backends, Aggregaten und Volumes.  Die Seite *NFS-Details* enthält Daten zum NFS-Datenspeicher. 
+
+
+| VMFS-Datenspeicher | Die Seite *Speicherdetails* enthält Details zum Speicher-Backend, Aggregat, Volume und zur Speicherverfügbarkeitszone (SAZ).  Die Seite *Lagereinheitendetails* enthält Details zur Lagereinheit. 
+
+
+| vVols -Datenspeicher | Listet alle Bände auf.  Sie können Speicher im ONTAP Speicherbereich erweitern oder entfernen.  Diese Ansicht wird für den auf dem ASA R2-System basierenden vVols Datenspeicher nicht unterstützt. 
+|===

@@ -1,0 +1,168 @@
+---
+permalink: upgrade/upgrade-error-codes.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: Auf dieser Seite werden die Fehlercodes für den Upgrade-Vorgang der ONTAP tools for VMware vSphere System beschrieben. 
+---
+= Upgrade-Fehlercodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Während des Upgradevorgangs der ONTAP tools for VMware vSphere können Fehlercodes auftreten.  Die Fehlercodes bestehen aus fünf Ziffern, wobei die ersten beiden Ziffern das Skript darstellen, bei dem das Problem aufgetreten ist, und die letzten drei Ziffern den spezifischen Arbeitsablauf innerhalb dieses Skripts darstellen.
+
+Alle Fehlerprotokolle werden in der Datei ansible-perl-errors.log aufgezeichnet, um die einfache Verfolgung und Lösung von Problemen zu ermöglichen. Diese Protokolldatei enthält den Fehlercode und die fehlgeschlagene Ansible-Aufgabe.
+
+
+NOTE: Die auf dieser Seite angegebenen Fehlercodes dienen nur als Referenz.  Wenden Sie sich an das Support-Team, wenn der Fehler weiterhin besteht oder keine Lösung angegeben ist.
+
+In der folgenden Tabelle sind die Fehlercodes und die entsprechenden Dateinamen aufgeführt.
+
+|===
+
+
+| *Fehlercode* | *Skriptname* 
+
+
+| 00 | firstboot-network-config.pl, Modus bereitstellen 
+
+
+| 01 | firstboot-network-config.pl, Modus-Upgrade 
+
+
+| 02 | firstboot-inputs-validation.pl 
+
+
+| 03 | firstboot-deploy-otv-ng.pl, bereitstellen, HA 
+
+
+| 04 | firstboot-deploy-otv-ng.pl, bereitstellen, nicht-HA 
+
+
+| 05 | firstboot-deploy-otv-ng.pl, Neustart 
+
+
+| 06 | firstboot-deploy-otv-ng.pl, Upgrade, HA 
+
+
+| 07 | firstboot-deploy-otv-ng.pl, Upgrade, nicht-HA 
+
+
+| 08 | firstboot-otv-recovery.pl 
+
+
+| 09 | post-deploy-upgrade.pl 
+|===
+Die letzten drei Ziffern des Fehlercodes geben den spezifischen Workflow-Fehler innerhalb des Skripts an:
+
+|===
+| *Upgrade-Fehlercode* | *Arbeitsablauf* | *Auflösung* 
+
+
+| 052 | Die ISO-Datei kann mit der aktuellen Version identisch sein oder zwei Versionen über der aktuellen Version liegen. | Verwenden Sie eine kompatible ISO-Version, um ein Upgrade von Ihrer aktuellen Version durchzuführen. 
+
+
+| 068 | Das Rollback der Debian-Pakete ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 069 | Wiederherstellung der Dateien fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 070 | Löschen der Sicherung fehlgeschlagen | - 
+
+
+| 071 | Der Kubernetes-Cluster war nicht fehlerfrei | - 
+
+
+| 074 | Das Einbinden von ISO ist fehlgeschlagen | Überprüfen Sie /var/log/upgrade-run.log und versuchen Sie das Upgrade erneut. 
+
+
+| 075 | Upgrade-Vorprüfungen sind fehlgeschlagen | Versuchen Sie das Upgrade erneut. 
+
+
+| 076 | Das Upgrade der Registrierung ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 077 | Das Rollback der Registrierung ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 078 | Das Operator-Upgrade ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 079 | Das Rollback des Operators ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 080 | Das Upgrade der Dienste ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 081 | Das Rollback der Dienste ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 082 | Das Löschen alter Bilder aus dem Container ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 083 | Das Löschen der Sicherung ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 084 | Das Zurücksetzen von JobManager auf Produktion ist fehlgeschlagen | Befolgen Sie die folgenden Schritte, um das Upgrade wiederherzustellen/abzuschließen. 1.  Aktivieren Sie Diagnostic Shell 2.  Führen Sie den Befehl aus: _sudo perl /home/maint/scripts/post-deploy-upgrade.pl --postupgrade_ 3.  Überprüfen Sie die Protokolle unter /var/log/post-deploy-upgrade.log 
+
+
+| 087 | Die Schritte nach dem Upgrade sind fehlgeschlagen. | Führen Sie die folgenden Schritte aus, um das Upgrade wiederherzustellen/abzuschließen. 1.  Aktivieren Sie Diagnostic Shell 2.  Führen Sie den Befehl _sudo perl /home/maint/scripts/post-deploy-upgrade.pl --postupgrade_ aus. 3.  Überprüfen Sie die Protokolle unter /var/log/post-deploy-upgrade.log 
+
+
+| 088 | Das Konfigurieren der Protokollrotation für Journald ist fehlgeschlagen | Überprüfen Sie, ob die VM-Netzwerkeinstellungen mit dem Host kompatibel sind, auf dem die VM gehostet wird.  Sie können versuchen, die VM auf einen anderen Host zu migrieren und neu zu starten. 
+
+
+| 089 | Das Ändern des Eigentümers der Rotationskonfigurationsdatei des Zusammenfassungsprotokolls ist fehlgeschlagen | Versuchen Sie das Upgrade erneut. 
+
+
+| 095 | Betriebssystem-Upgrade fehlgeschlagen | Keine Wiederherstellung für Betriebssystem-Upgrade.  Die ONTAP -Tool-Dienste werden aktualisiert und neue Pods werden ausgeführt. 
+
+
+| 096 | Installieren Sie den Dynamic Storage Provisioner | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 097 | Die Deinstallation der Dienste für das Upgrade ist fehlgeschlagen | Verwenden Sie eine Wiederherstellung auf Basis von Null-RPO oder Snapshots und versuchen Sie das Upgrade erneut. 
+
+
+| 098 | Das Kopieren des Dockercred-Geheimnisses vom NTV-System in den Namespace des dynamischen Speicherbereitstellers ist fehlgeschlagen | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 099 | Die Validierung der neuen HDD-Erweiterung ist fehlgeschlagen. | Fügen Sie die neue Festplatte im Falle einer HA allen Knoten und im Falle einer Nicht-HA-Bereitstellung einem Knoten hinzu. 
+
+
+| 108 | Seeding-Skript fehlgeschlagen | - 
+
+
+| 109 | Das Sichern persistenter Volumedaten ist fehlgeschlagen | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 110 | Das Wiederherstellen persistenter Volumedaten ist fehlgeschlagen | Verwenden Sie Zero-RPO oder eine Snapshot-basierte Wiederherstellung und versuchen Sie das Upgrade erneut. 
+
+
+| 111 | Das Aktualisieren der etcd-Timeout-Parameter für RKE2 ist fehlgeschlagen | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 112 | Die Deinstallation des Dynamic Storage Provisioner ist fehlgeschlagen | - 
+
+
+| 113 | Das Aktualisieren der Ressourcen auf sekundären Knoten ist fehlgeschlagen | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 104 | Der Neustart des sekundären Knotens ist fehlgeschlagen | Starten Sie die Knoten manuell einzeln neu 
+
+
+| 100 | Kernel-Rollback ist fehlgeschlagen | - 
+
+
+| 051 | Das Upgrade des dynamischen Speicherbereitstellers ist fehlgeschlagen | Überprüfen Sie die Upgrade-Protokolle und versuchen Sie das Upgrade erneut. 
+
+
+| 056 | Das Löschen der Migrationssicherung ist fehlgeschlagen | N / A 
+|===
+
+NOTE: Ab ONTAP tools for VMware vSphere 10.3 wird Zero RPO nicht mehr unterstützt.
+
+Erfahren Sie mehr über https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["So stellen Sie ONTAP tools for VMware vSphere wieder her, wenn das Upgrade von Version 10.0 auf 10.1 fehlschlägt"]

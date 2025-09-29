@@ -1,0 +1,76 @@
+---
+permalink: manage/maintenance-console.html 
+sidebar: sidebar 
+keywords:  
+summary: Sie können Ihre Anwendungs-, System- und Netzwerkkonfigurationen mithilfe der Wartungskonsole der ONTAP Tools verwalten.  Sie können Ihr Administratorkennwort und Ihr Wartungskennwort ändern.  Sie können außerdem Support-Pakete erstellen, verschiedene Protokollebenen festlegen, TLS-Konfigurationen anzeigen und verwalten sowie Remote-Diagnosen starten. 
+---
+= Übersicht über ONTAP tools for VMware vSphere Wartungskonsole
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Ihre Anwendungs-, System- und Netzwerkkonfigurationen mithilfe der Wartungskonsole der ONTAP Tools verwalten.  Sie können Ihr Administratorkennwort und Ihr Wartungskennwort ändern.  Sie können außerdem Support-Pakete erstellen, verschiedene Protokollebenen festlegen, TLS-Konfigurationen anzeigen und verwalten sowie Remote-Diagnosen starten.
+
+Sie sollten VMware-Tools installiert haben, nachdem Sie die ONTAP tools for VMware vSphere bereitgestellt haben, um auf die Wartungskonsole zuzugreifen.  Sie sollten verwenden `maint` als Benutzername und Kennwort, das Sie während der Bereitstellung konfiguriert haben, um sich bei der Wartungskonsole der ONTAP Tools anzumelden.  Sie sollten *nano* zum Bearbeiten der Dateien in der Wartungs- oder Root-Anmeldekonsole verwenden.
+
+
+NOTE: Sie sollten ein Passwort festlegen für `diag` Benutzer beim Aktivieren der Ferndiagnose.
+
+Sie sollten die Registerkarte *Zusammenfassung* Ihrer bereitgestellten ONTAP tools for VMware vSphere verwenden, um auf die Wartungskonsole zuzugreifen.  Wenn Sieimage:../media/launch-maintenance-console.gif["Wiedergabetaste"] , die Wartungskonsole wird gestartet.
+
+|===
+
+
+| *Konsolenmenü* | *Optionen* 
+
+
+ a| 
+Anwendungskonfiguration
+ a| 
+. Serverstatusübersicht anzeigen
+. LOG-Level für VASA-Provider-Dienste und SRA-Dienste ändern
+
+
+
+
+ a| 
+Systemkonfiguration
+ a| 
+. Starten Sie die virtuelle Maschine neu
+. Virtuelle Maschine herunterfahren
+. Ändern Sie das Benutzerkennwort „maint“.
+. Zeitzone ändern
+. Größe der Jail-Festplatte erhöhen (/jail)
+. Upgrade
+. Installieren Sie VMware Tools
+
+
+
+
+ a| 
+Netzwerkkonfiguration
+ a| 
+. IP-Adresseinstellungen anzeigen
+. Sucheinstellungen für Domänennamen anzeigen
+. Sucheinstellungen für Domänennamen ändern
+. Statische Routen anzeigen
+. Statische Routen ändern
+. Änderungen festschreiben
+. Pingen Sie einen Host an
+. Standardeinstellungen wiederherstellen
+
+
+
+
+ a| 
+Support und Diagnose
+ a| 
+. Zugriff auf die Diagnose-Shell
+. Aktivieren Sie den Ferndiagnosezugriff
+. Geben Sie die vCenter-Anmeldeinformationen für die Sicherung an
+. Backup erstellen
+
+
+|===
