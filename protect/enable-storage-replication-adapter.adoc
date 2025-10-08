@@ -27,3 +27,6 @@ ONTAP tools for VMware vSphere bieten die Möglichkeit, die SRA-Funktion zur Kon
 . Laden Sie das _.tar.gz_-Installationsprogramm für das SRA-Plug-In auf VMware Live Site Recovery hoch.
 . Scannen Sie die Adapter erneut, um zu überprüfen, ob die Details auf der Seite „VMware Live Site Recovery Storage Replication Adapters“ aktualisiert sind.
 
+
+.Ähnliche Informationen
+https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-nfs-vlsr.html#scenario-overview["Konfigurieren der Notfallwiederherstellung für NFS-Datenspeicher mit VMware Site Recovery Manager"]

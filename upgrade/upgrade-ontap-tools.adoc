@@ -20,7 +20,7 @@ NOTIZ:
 
 
 .Bevor Sie beginnen
-Schalten Sie bei einem Nicht-HA-Upgrade die ONTAP -Tools-VM aus und schalten Sie bei einem HA-Upgrade den ersten Knoten aus, bevor Sie die folgenden Änderungen an den Einstellungen der virtuellen Maschine (VM) vornehmen.
+Schalten Sie bei einem Nicht-HA-Upgrade die ONTAP -Tools-VM aus und bei einem HA-Upgrade den ONTAP -Tools-Verwaltungsknoten, bevor Sie die folgenden Änderungen an den Einstellungen der virtuellen Maschine (VM) vornehmen.
 
 Wenn Sie von ONTAP tools for VMware vSphere 10.2 oder 10.3 aktualisieren, müssen Sie vor dem Upgrade folgende Schritte ausführen: * Fügen Sie jedem Knoten eine zusätzliche 100-GB-Festplatte hinzu, da die Servicedaten lokal auf der VM gespeichert sind. * Passen Sie CPU und Speicher für die ausgeschaltete VM entsprechend Ihrer Implementierung an. Aktivieren Sie das Hot-Plugin für CPU und RAM.
 
@@ -123,7 +123,7 @@ Nach dem Upgrade auf ONTAP tools for VMware vSphere 10.4 können Sie:
 * Deaktivieren Sie die Dienste über die Manager-Benutzeroberfläche
 * Wechseln Sie von einem Nicht-HA-Setup zu einem HA-Setup
 * Skalieren Sie eine kleine Konfiguration ohne HA auf eine mittlere Konfiguration ohne HA oder auf eine mittlere oder große Konfiguration mit HA.
-* Starten Sie im Falle eines Nicht-HA-Upgrades die ONTAP -Tools-VM neu, um die Änderungen zu übernehmen.  Starten Sie im Falle eines HA-Upgrades den ersten Knoten neu, um die Änderungen auf dem Knoten zu übernehmen.
+* Starten Sie im Falle eines Nicht-HA-Upgrades die ONTAP -Tools-VM neu, um die Änderungen zu übernehmen. Starten Sie im Falle eines HA-Upgrades den Verwaltungsknoten der ONTAP Tools neu, um die Änderungen auf dem Knoten zu übernehmen.
 
 
 .Was kommt als nächstes

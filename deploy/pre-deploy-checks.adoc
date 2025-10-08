@@ -60,13 +60,13 @@ Verwenden Sie das folgende Arbeitsblatt, um die erforderlichen Informationen fü
 | Erfordernis | Ihr Wert 
 
 
-| IP-Adresse für die ONTAP -Tools-Anwendung. Dies ist die IP-Adresse für den Zugriff auf die Weboberfläche der ONTAP -Tools |  
+| IP-Adresse für die ONTAP -Tools-Anwendung. Dies ist die IP-Adresse für den Zugriff auf die Weboberfläche der ONTAP Tools (Load Balancer). |  
 
 
-| Virtuelle IP-Adresse der ONTAP -Tools für die interne Kommunikation. Diese IP-Adresse wird für die interne Kommunikation in einem Setup mit mehreren ONTAP -Tools-Instanzen verwendet. Diese IP-Adresse darf nicht mit der IP-Adresse für die ONTAP -Tools-Anwendung identisch sein. |  
+| Virtuelle IP-Adresse der ONTAP -Tools für die interne Kommunikation. Diese IP-Adresse wird für die interne Kommunikation in einem Setup mit mehreren ONTAP -Tools-Instanzen verwendet. Diese IP-Adresse darf nicht mit der IP-Adresse für die ONTAP -Tools-Anwendung identisch sein. (Die Kubernetes-Steuerebene) |  
 
 
-| DNS-Hostname für den ersten Knoten |  
+| DNS-Hostname für den Verwaltungsknoten der ONTAP -Tools |  
 
 
 | Primärer DNS-Server |  
@@ -78,7 +78,7 @@ Verwenden Sie das folgende Arbeitsblatt, um die erforderlichen Informationen fü
 | DNS-Suchdomäne |  
 
 
-| IPv4-Adresse für den ersten Knoten. Es handelt sich um eine eindeutige IPv4-Adresse für die Knotenverwaltungsschnittstelle im Verwaltungsnetzwerk. |  
+| IPv4-Adresse für den Verwaltungsknoten der ONTAP Tools. Es handelt sich um eine eindeutige IPv4-Adresse für die Knotenverwaltungsschnittstelle im Verwaltungsnetzwerk. |  
 
 
 | Subnetzmaske für die IPv4-Adresse |  

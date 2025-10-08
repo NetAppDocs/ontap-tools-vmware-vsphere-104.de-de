@@ -48,7 +48,7 @@ NOTE: Nachdem die HA-Konfiguration aktiviert wurde, können Sie nicht mehr zu ei
 . Im Abschnitt *HA-Einstellungen* des Fensters *Appliance-Einstellungen bearbeiten* können Sie die Details der Knoten 2 und 3 eingeben.  ONTAP tools for VMware vSphere unterstützen drei Knoten im HA-Setup.
 +
 
-NOTE: Zur Vereinfachung des Arbeitsablaufs sind die meisten Eingabeoptionen bereits mit Netzwerkdetails zu Knoten 1 ausgefüllt. Sie können die Eingabedaten jedoch bearbeiten, bevor Sie zur letzten Seite des Assistenten navigieren. Sie können IPv6-Adressdetails für die anderen beiden Knoten nur eingeben, wenn die IPv6-Adresse auf dem ersten Knoten aktiviert ist.
+NOTE: Zur Vereinfachung des Arbeitsablaufs sind die meisten Eingabeoptionen bereits mit Netzwerkdetails zu Knoten 1 ausgefüllt. Sie können die Eingabedaten jedoch bearbeiten, bevor Sie zur letzten Seite des Assistenten navigieren. Sie können IPv6-Adressdetails für die anderen beiden Knoten nur eingeben, wenn die IPv6-Adresse auf dem Verwaltungsknoten der ONTAP -Tools aktiviert ist.
 
 +
 Stellen Sie sicher, dass ein ESXi-Host nur eine ONTAP -Tools-VM enthält.  Die Eingaben werden jedes Mal validiert, wenn Sie zum nächsten Fenster wechseln.
