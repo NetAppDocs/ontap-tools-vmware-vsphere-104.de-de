@@ -108,7 +108,7 @@ Es wird eine neue Festplatte erstellt.  Der Dynamic Storage Provisioner verwende
 . Wählen Sie die ISO-Datei aus und klicken Sie auf *OK*.  Aktivieren Sie das Kontrollkästchen neben dem Feld *CD/DVD-Laufwerk*.image:../media/primaryvm-edit-settings.png["Einstellungen bearbeiten"]
 . Öffnen Sie vom vCenter Server aus eine Konsole für die ONTAP Tools.
 . Melden Sie sich als Wartungsbenutzer an.
-. Geben Sie *3* ein, um das Menü „Systemkonfiguration“ auszuwählen.
+. Geben Sie *2* ein, um das Menü „Systemkonfiguration“ auszuwählen.
 . Geben Sie *7* ein, um die Upgrade-Option auszuwählen.
 . Beim Upgrade werden die folgenden Aktionen automatisch ausgeführt:
 +

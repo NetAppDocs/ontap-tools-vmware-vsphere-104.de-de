@@ -13,6 +13,9 @@ summary: 'Sie können einen VMware Virtual Volumes \(vVols\)-Datenspeicher mithi
 [role="lead"]
 Sie können einen VMware Virtual Volumes (vVols)-Datenspeicher auf einem oder mehreren zusätzlichen Hosts bereitstellen, um zusätzlichen Hosts Speicherzugriff zu gewähren.  Sie können den vVols Datenspeicher nur über die APIs aushängen.
 
+
+NOTE: Wenn Sie einen neuen ESXi-Host hinzufügen, indem Sie https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/use-quickstart-to-add---host-to-a-cluster.html["Fügen Sie Ihrem vSphere-Cluster-Workflow einen ESX-Host hinzu"] Warten Sie, bis die geplante Host-Erkennung abgeschlossen ist, bevor der Host in den ONTAP -Tools angezeigt wird.  Alternativ können Sie die Erkennung manuell über die Übersichtsseite der NetApp ONTAP -Tools starten.
+
 .Schritte
 . Wählen Sie auf der Startseite des vSphere-Clients *Hosts und Cluster* aus.
 . Wählen Sie im Navigationsbereich das Rechenzentrum aus, das den Datenspeicher enthält.
@@ -21,3 +24,6 @@ Sie können einen VMware Virtual Volumes (vVols)-Datenspeicher auf einem oder me
 
 
 Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.
+
+.Verwandtes Thema
+link:../manage/add-vsphere-host.html["Neue VMware vSphere-Hosts hinzufügen"]

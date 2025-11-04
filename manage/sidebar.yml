@@ -14,6 +14,8 @@ entries:
   url: "/manage/enable-services.html"
 - title: Ändern Sie die ONTAP tools for VMware vSphere Konfiguration
   url: "/manage/edit-appliance-settings.html"
+- title: Neue VMware vSphere-Hosts hinzufügen
+  url: "/manage/add-vsphere-host.html"
 - title: Verwalten von Datenspeichern
   entries:
   - title: Mounten Sie NFS- und VMFS-Datenspeicher

@@ -13,6 +13,9 @@ summary: Durch das Mounten eines Datenspeichers wird Speicherzugriff auf zusätz
 [role="lead"]
 Durch das Mounten eines Datenspeichers wird Speicherzugriff auf zusätzliche Hosts bereitgestellt.  Sie können den Datenspeicher auf den zusätzlichen Hosts mounten, nachdem Sie die Hosts zu Ihrer VMware-Umgebung hinzugefügt haben.
 
+
+NOTE: Wenn Sie einen neuen ESXi-Host hinzufügen, indem Sie https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/use-quickstart-to-add---host-to-a-cluster.html["Fügen Sie Ihrem vSphere-Cluster-Workflow einen ESX-Host hinzu"] Warten Sie, bis die geplante Host-Erkennung abgeschlossen ist, bevor der Host in den ONTAP -Tools angezeigt wird.  Alternativ können Sie die Erkennung manuell über die Übersichtsseite der NetApp ONTAP -Tools starten.
+
 .Informationen zu diesem Vorgang
 * Einige Rechtsklickaktionen sind je nach vSphere-Clientversion und ausgewähltem Datenspeichertyp deaktiviert oder nicht verfügbar.
 +
@@ -32,3 +35,6 @@ Durch das Mounten eines Datenspeichers wird Speicherzugriff auf zusätzliche Hos
 
 .Wie geht es weiter?
 Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.
+
+.Verwandtes Thema
+link:../manage/add-vsphere-host.html["Neue VMware vSphere-Hosts hinzufügen"]
