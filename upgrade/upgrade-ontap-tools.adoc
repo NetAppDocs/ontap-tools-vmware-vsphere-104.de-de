@@ -103,7 +103,13 @@ Es wird eine neue Festplatte erstellt.  Der Dynamic Storage Provisioner verwende
 
 .Schritte
 . Laden Sie ONTAP tools for VMware vSphere -Upgrade-ISO in die Inhaltsbibliothek hoch.
-. Wählen Sie auf der primären VM-Seite *Aktionen* > *Einstellungen bearbeiten*
+. Wählen Sie auf der primären VM-Seite *Aktionen* > *Einstellungen bearbeiten*. Um den primären VM-Namen zu ermitteln:
++
+.. Aktivieren Sie die Diagnose-Shell auf einem beliebigen Knoten.
+.. Führen Sie folgenden Befehl aus:
+`grep sourceHost /opt/netapp/meta/ansible_vars.yaml`
+
+
 . Wählen Sie die ISO-Datei der Inhaltsbibliothek im Fenster „Einstellungen bearbeiten“ unter dem Feld „CD/DVD-Laufwerk“ aus.
 . Wählen Sie die ISO-Datei aus und klicken Sie auf *OK*.  Aktivieren Sie das Kontrollkästchen neben dem Feld *CD/DVD-Laufwerk*.image:../media/primaryvm-edit-settings.png["Einstellungen bearbeiten"]
 . Öffnen Sie vom vCenter Server aus eine Konsole für die ONTAP Tools.

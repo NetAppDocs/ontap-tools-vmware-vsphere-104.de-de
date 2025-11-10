@@ -1775,14 +1775,8 @@
   <block id="9f147a250dd9a5cd9d9745eb3f5f7668" category="paragraph">Aktualisieren Sie die AutoSupport -Proxy-URL, um die ordnungsgemäße Funktion der AutoSupport -Funktion in Szenarien sicherzustellen, in denen ein Proxyserver für die Netzwerkzugriffskontrolle oder Sicherheitsmaßnahmen verwendet wird.  Es ermöglicht die Weiterleitung der AutoSupport -Daten über den entsprechenden Proxy und sorgt so für eine sichere Übertragung und Einhaltung der Vorschriften.</block>
   <block id="d49d8a5effc0a522fa72d0ff457066df" category="list-text">Geben Sie eine gültige *Proxy-URL* ein und speichern Sie die Änderungen.</block>
   <block id="eb587ff6958c1e65b721306af8fa8e3b" category="paragraph">Wenn Sie AutoSupport deaktivieren, wird auch die Proxy-URL deaktiviert.</block>
-  <block id="a6f65a806180d1ff3c8d5e553e634e9d" category="summary">Sie können die Anmeldeinformationen für vCenter Server und ONTAP mithilfe der Wartungskonsole aktualisieren.</block>
-  <block id="f72e000ebb4c7bedf651a46e595f1371" category="doc">Aktualisieren Sie die vCenter Server- und ONTAP -Anmeldeinformationen</block>
-  <block id="7ac19aa441feceb73519a5108d4cc366" category="paragraph">Sie können die vCenter Server-Instanz und die ONTAP Anmeldeinformationen mithilfe der Wartungskonsole aktualisieren.</block>
   <block id="21a56b485fb6cd9f7c9cc8f514440950" category="paragraph">Sie benötigen die Anmeldedaten eines Wartungsbenutzers.</block>
-  <block id="1f8bb3d639d4544a4979b060d7cccc88" category="paragraph">Wenn Sie die Anmeldeinformationen für vCenter Server, ONTAP oder Data LIF nach der Bereitstellung geändert haben, müssen Sie die Anmeldeinformationen mit diesem Verfahren aktualisieren.</block>
   <block id="cea5a13834803a12adaeb249165351df" category="list-text">Eingeben<block ref="c81e728d9d4c2f636f067f89cc14862c" prefix=" " category="inline-code"></block> , um das Systemkonfigurationsmenü auszuwählen.</block>
-  <block id="86ce6e9c3af571980099ca308cd245e3" category="list-text">Eingeben<block ref="45c48cce2e2d7fbdea1afc51c7c6ad26" prefix=" " category="inline-code"></block> um die ONTAP Anmeldeinformationen zu ändern.</block>
-  <block id="207c00a73dde0270cc0fbc7ce9c5f2fd" category="list-text">Eingeben<block ref="d3d9446802a44259755d38e6d163e820" prefix=" " category="inline-code"></block> um die vCenter-Anmeldeinformationen zu ändern.</block>
   <block id="d3cd4bffc1abc46e60337f8438f457b9" category="summary">Die Speicheransicht zeigt die Liste der vVols , die von der virtuellen Maschine erstellt werden.</block>
   <block id="f6607063532d19e10b746de0f6108f15" category="doc">Speicheransicht der virtuellen Maschine</block>
   <block id="9d850336a156831a9095fd981a1a0c23" category="admonition">Diese Ansicht ist für die VM anwendbar, auf der mindestens eine mit ONTAP tools for VMware vSphere verwaltete vVols Datenspeicher verbundene Festplatte gemountet ist.</block>
@@ -2284,7 +2278,6 @@
   <block id="cd457aeee08a9f6476660a1f15284160" category="paragraph">Aktualisieren Sie nach dem Hinzufügen der Festplatte die Ressourcen der VM für die jeweiligen Konfigurationen und starten Sie die primäre VM neu.</block>
   <block id="82c4bde04ac809c6d15f232949e072ce" category="paragraph">Es wird eine neue Festplatte erstellt.  Der Dynamic Storage Provisioner verwendet diese Festplatte zum Generieren oder Replizieren der Volumes.</block>
   <block id="b06f0e274f6c746f0d30521b5c7f392e" category="list-text">Laden Sie ONTAP tools for VMware vSphere -Upgrade-ISO in die Inhaltsbibliothek hoch.</block>
-  <block id="dd5382558ec4a47dfbc203fb25698772" category="list-text">Wählen Sie auf der primären VM-Seite *Aktionen* &gt; *Einstellungen bearbeiten*</block>
   <block id="ef9e53e40d78d57abe78283a3603eb4e" category="list-text">Wählen Sie die ISO-Datei der Inhaltsbibliothek im Fenster „Einstellungen bearbeiten“ unter dem Feld „CD/DVD-Laufwerk“ aus.</block>
   <block id="54a029420d74c0dff69239155cf510b5" category="inline-image-macro">Einstellungen bearbeiten</block>
   <block id="2c2d3019834934bb25449edddc396321" category="list-text">Wählen Sie die ISO-Datei aus und klicken Sie auf *OK*.  Aktivieren Sie das Kontrollkästchen neben dem Feld *CD/DVD-Laufwerk*.<block ref="af57a506b85774ef3a9f849e2b26e258" category="inline-image-macro-rx" type="image"></block></block>
@@ -2433,4 +2426,12 @@
   <block id="83c2a6ded9467f8048f9a53cabd2e783" category="paragraph-title">Verwandtes Thema</block>
   <block id="403e2c858b37daa43171ef37b71e6640" category="paragraph"><block ref="403e2c858b37daa43171ef37b71e6640" category="inline-link-macro-rx"></block></block>
   <block id="17e484c8a86cb4a7c9192fe5d0393445" category="list-text">Geben Sie *2* ein, um das Menü „Systemkonfiguration“ auszuwählen.</block>
+  <block id="f59d6f6c2fbe5659bab55bb335b17871" category="summary">Sie können die Anmeldeinformationen des vCenter Servers über die Wartungskonsole aktualisieren.</block>
+  <block id="d546c3915b2e0bc231d2bd0456f2d736" category="doc">Aktualisieren Sie die Anmeldeinformationen des vCenter Servers.</block>
+  <block id="6e73e8087488ddc10c72aeec0f27cc93" category="paragraph">Sie können die Anmeldeinformationen der vCenter Server-Instanz über die Wartungskonsole aktualisieren.</block>
+  <block id="1f2db2b2d242479839579d1cc7f9d26e" category="paragraph">Wenn Sie die Anmeldeinformationen für vCenter Server nach der Bereitstellung geändert haben, müssen Sie die Anmeldeinformationen mit diesem Verfahren aktualisieren.</block>
+  <block id="a38dbe6982c223d82e53b7d0feab69ce" category="list-text">Eingeben<block ref="c9f0f895fb98ab9159f51fd0297e236d" prefix=" " category="inline-code"></block> um die vCenter-Anmeldeinformationen zu ändern.</block>
+  <block id="a928a1b805644ea87a643f7f8d60a477" category="list-text">Wählen Sie auf der primären VM-Seite *Aktionen* &gt; *Einstellungen bearbeiten*. Um den primären VM-Namen zu ermitteln:</block>
+  <block id="75a86edd37c9b2122be450b28fa09149" category="list-text">Aktivieren Sie die Diagnose-Shell auf einem beliebigen Knoten.</block>
+  <block id="e016d50ae26af4214e6a864c1c2c8db5" category="list-text">Führen Sie folgenden Befehl aus:<block ref="1ebe86b64a17c55ae52f4488cffae75f" prefix=" " category="inline-code"></block></block>
 </blocks>
