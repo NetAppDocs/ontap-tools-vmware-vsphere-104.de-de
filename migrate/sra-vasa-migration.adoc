@@ -10,6 +10,9 @@ summary: Beim Migrieren von Speicherdaten werden Speicher-Backends manuell mithi
 :imagesdir: ../media/
 
 
+[role="lead"]
+Befolgen Sie die Schritte in diesem Abschnitt, um den VASA Provider von ONTAP tools for VMware vSphere 9.xx auf ONTAP tools for VMware vSphere 10.4 zu migrieren und den Storage Replication Adapter (SRA) auf der VMware Live Site Recovery Appliance zu aktualisieren.
+
 
 
 == Schritte zur Migration des VASA-Anbieters
@@ -22,15 +25,33 @@ iptables -I INPUT 1 -p tcp --dport 1527 -j ACCEPT
 ----
 . Stellen Sie OVA für ONTAP tools for VMware vSphere 10.4 bereit.
 . Fügen Sie die vCenter Server-Instanz hinzu, die Sie zu ONTAP tools for VMware vSphere 10.4 Release migrieren möchten. Weitere Informationen finden Sie unter link:../configure/add-vcenter.html["Hinzufügen einer vCenter Server-Instanz"] für weitere Informationen.
-. Integrieren Sie das Speicher-Backend lokal von den vCenter-Server-APIs für das ONTAP Tools-Plug-In.
-. Führen Sie zur Migration die folgende API von Swagger oder in Postman aus.
+. Binden Sie das Speicher-Backend lokal über die vCenter Server-APIs für das ONTAP -Tools-Plug-in ein. Siehe dazulink:../configure/add-storage-backend.html["Fügen Sie ein Speicher-Backend über die vSphere-Clientschnittstelle hinzu."] für weitere Informationen.
+. Sie benötigen ein Zugriffstoken, um REST-API-Anfragen zu authentifizieren. Verwenden Sie das folgende Beispiel und ersetzen Sie die Variablen durch Werte, die für Ihre Umgebung spezifisch sind.
 +
-curl -X POST  `\https://xx.xx.xx.xx:8443/virtualization/api/v1/vcenters/{vcguid}/migration-jobs``
++
+
+
+
+[listing]
+----
+curl --request POST \
+--location "https://$FQDN_IP_PORT/virtualization/api/v1/auth/login” \
+--header "Content-Type: application/json" \
+--header "Accept: */*" \
+-d "{"username": "$MYUSER", "password": "$MYPASSWORD"}"
+----
+Kopieren und speichern Sie das in der Antwort zurückgegebene Zugriffstoken. . Führen Sie zur Migration die folgende API von Swagger oder in Postman aus.
 
 +
-Sie können über diese URL auf Swagger zugreifen:  `\https://$FQDN_IP_PORT/', for example: `\https://10.67.25.33:8443` .
+
+[listing]
+----
+curl -X POST `\https://xx.xx.xx.xx:8443/virtualization/api/v1/vcenters/{vcguid}/migration-jobs`
+----
++ Sie können Swagger über diese URL aufrufen: `\https://$FQDN_IP_PORT/`, Zum Beispiel: `\https://10.67.25.33:8443/`Die
 
 +
+
 []
 ====
 *HTTP-Methode und Endpunkt*
@@ -51,38 +72,72 @@ Asynchron
 
 *Curl-Beispiel*
 
-curl -X POST'https://<OTV-NG-IP>:8443/virtualization/api/v1/vcenters/<vcguid>/migration-jobs'[] \ --header 'x-auth: <auth_token>' \ --header 'Content-Type: application/json' \ --data '{ "otv_ip": "xx.xx.xx.xx", "vasa_provider_credentials": { "username": "xxxxx", "password": "******" }, "database_password": "******" }'
-
+[listing]
+----
+curl -X POST 'https://<OTV-NG-IP>:8443/virtualization/api/v1/vcenters/<vcguid>/migration-jobs' \
+--header 'x-auth: <auth_token>' \
+--header 'Content-Type: application/json' \
+--data '{
+  "otv_ip": "xx.xx.xx.xx",
+  "vasa_provider_credentials": {
+    "username": "xxxxx",
+    "password": "******"
+  },
+  "database_password": "******"
+}'
+----
 Anforderungstext für die Migration zu anderen Releases:
 
-{ "otv_ip": "xx.xx.xx.xx", "vasa_provider_credentials": { "Benutzername": "xxxxx", "Passwort": "*******" } }
-
+[listing]
+----
+{
+  "otv_ip": "xx.xx.xx.xx",
+  "vasa_provider_credentials": {
+    "username": "xxxxx",
+    "password": "*******"
+  }
+}
+----
 *JSON-Ausgabebeispiel*
 
-Es wird ein Jobobjekt zurückgegeben.  Sie sollten die Jobkennung speichern, um sie im nächsten Schritt zu verwenden.
+Das System gibt ein Jobobjekt zurück. Speichern Sie die Auftragskennung, um sie im nächsten Schritt zu verwenden.
 
-{ "id": 123, "migration_id": "d50073ce-35b4-4c51-9d2e-4ce66f802c35", "status": "läuft" }
-
+[listing]
+----
+{
+  "id": 123,
+  "migration_id": "d50073ce-35b4-4c51-9d2e-4ce66f802c35",
+  "status": "running"
+}
+----
 ====
 . Verwenden Sie die folgende URI in Swagger, um den Status zu überprüfen:
 +
 [listing]
 ----
-curl `\https://xx.xx.xx.xxx:8443/virtualization/api/jobmanager/v2/jobs/<JobID>?includeSubJobsAndTasks=true`
+curl `\https://xx.xx.xx.xxx:8443/virtualization/api/jobmanager/v2/jobs/<migration_id>?includeSubJobsAndTasks=true`
 ----
 +
-Überprüfen Sie nach Abschluss des Auftrags den Migrationsbericht.  Dieser Bericht ist in den Auftragsdaten enthalten und kann über die Auftragsantwort aufgerufen werden.
+Überprüfen Sie nach Abschluss des Auftrags den Migrationsbericht in der Auftragsantwort.
 
-. Fügen Sie die ONTAP tools for VMware vSphere Speicheranbieter zum vCenter Server hinzu undlink:../configure/registration-process.html["Registrieren des VASA-Anbieters"] mit ONTAP tools for VMware vSphere.
+. Fügen Sie die ONTAP tools for VMware vSphere -Speicheranbieter zum vCenter Server hinzu.
+. Registrieren Sie den VASA-Provider mit ONTAP tools for VMware vSphere. Anweisungen finden Sie unterlink:../configure/registration-process.html["Registrieren des VASA-Anbieters"] .
+. Überprüfen Sie nach der Registrierung den Namen des VASA-Anbieters und seinen Status im vSphere Client unter *Speicheranbieter*. Der VASA-Anbieter sollte online erscheinen und die erfolgreiche Registrierung bestätigen.
 . link:../manage/enable-services.html["VASA-Anbieter aktivieren"]Dienst auf ONTAP tools for VMware vSphere 10.4.
-. Stoppen Sie den VASA Provider-Dienst von ONTAP tools for VMware vSphere Storage Provider 9.10/9.11/9.12/9.13 über die Wartungskonsole.
+. Beenden Sie die ONTAP tools for VMware vSphere Storage Provider 9.10/9.11/9.12/9.13 VASA Provider-Dienst mit den folgenden Schritten:
 +
-Löschen Sie den VASA-Anbieter nicht.
-
+.. Öffnen Sie in ONTAP tools 9.x die Webkonsole.
+.. Greifen Sie auf die Wartungskonsole zu.
+.. Eingeben `1` um das Menü *Anwendungskonfiguration* auszuwählen.
+.. Eingeben `5` um die VASA Provider- und SRA-Dienste zu stoppen.
+.. Navigieren Sie im vSphere Client zu *Inventar* > *Speicheranbieter*.
+.. Wählen Sie im Speicher-Backend den ONTAP tools 9.x VASA Provider aus und klicken Sie auf *Entfernen*.
 +
 Nachdem der alte VASA-Provider gestoppt wurde, führt der vCenter Server ein Failover auf ONTAP tools for VMware vSphere durch. Alle Datenspeicher und VMs sind nun über ONTAP tools for VMware vSphere zugänglich und werden von diesen bedient.
 
-. Die aus den ONTAP tools for VMware vSphere 9.xxx migrierten NFS- und VMFS-Datenspeicher sind in den ONTAP tools for VMware vSphere 10.4 erst sichtbar, nachdem der Datenspeichererkennungsjob ausgelöst wurde. Dies kann bis zu 30 Minuten dauern. Stellen Sie sicher, dass die Datenspeicher auf der Übersichtsseite der ONTAP -Tools für die Benutzeroberflächenseite des VMware vSphere-Plugins sichtbar sind.
+
+
+. Migrierte NFS- und VMFS-Datenspeicher werden in ONTAP tools for VMware vSphere 10.4 nach dem Datenspeichererkennungsjob angezeigt, der bis zu 30 Minuten dauern kann. Überprüfen Sie ihre Sichtbarkeit auf der Übersichtsseite.
 . Führen Sie die Patchmigration mithilfe der folgenden API in Swagger oder Postman durch:
 +
 []
@@ -103,49 +158,64 @@ Dieser REST-API-Aufruf verwendet die folgende Methode und den folgenden Endpunkt
 
 Asynchron
 
+Verwenden Sie die folgende URI in Swagger:
+
+[listing]
+----
+curl  -X PATCH  `\https://xx.xx.xx.xx:8443/virtualization/api/v1/vcenters/<vcenter_id>/migration-jobs/<migration_id>`
+----
 *Curl-Beispiel*
 
-curl -X PATCH  `\https://xx.xx.xx.xx:8443/virtualization/api/v1/vcenters/56d373bd-4163-44f9-a872-9adabb008ca9/migration-jobs/84dr73bd-9173-65r7-w345-8ufdbb887d43`
-
+[listing]
+----
+curl  -X PATCH  `\https://xx.xx.xx.xx:8443/virtualization/api/v1/vcenters/56d373bd-4163-44f9-a872-9adabb008ca9/migration-jobs/d50073ce-35b4-4c51-9d2e-4ce66f802c35`
+----
 *JSON-Ausgabebeispiel*
 
 Es wird ein Jobobjekt zurückgegeben.  Sie sollten die Jobkennung speichern, um sie im nächsten Schritt zu verwenden.
 
-{ "id": 123, "migration_id": "d50073ce-35b4-4c51-9d2e-4ce66f802c35", "status": "läuft" }
-
+[listing]
+----
+{
+  "id": 123,
+  "migration_id": "d50073ce-35b4-4c51-9d2e-4ce66f802c35",
+  "status": "running"
+}
+----
+====
++
 Der Anforderungstext ist für den Patchvorgang leer.
+
+
 
 
 NOTE: UUID ist die Migrations-UUID, die als Antwort auf die Post-Migrations-API zurückgegeben wird.
 
 Nach dem Ausführen der Patch-Migrations-API entsprechen alle VMs der Speicherrichtlinie.
 
-====
-
-
 .Was kommt als nächstes
 Nachdem Sie die Migration abgeschlossen und ONTAP Tools 10.4 beim vCenter Server registriert haben, führen Sie die folgenden Schritte aus:
 
-* Warten Sie, bis die *Erkennung* abgeschlossen ist. Die Zertifikate werden auf allen Hosts automatisch aktualisiert.
-* Warten Sie ausreichend, bevor Sie Datenspeicher- und virtuelle Maschinenvorgänge starten. Die erforderliche Wartezeit hängt von der Anzahl der Hosts, Datenspeicher und virtuellen Maschinen in der Konfiguration ab. Andernfalls kann es zu zeitweiligen Betriebsausfällen kommen.
+* Warten Sie, bis die *Erkennung* abgeschlossen ist. Das System aktualisiert die Zertifikate auf allen Hosts automatisch.
+* Warten Sie, bevor Sie mit dem Starten von Datenspeicher- und virtuellen Maschinenvorgängen beginnen. Die Wartezeit hängt von der Anzahl der Hosts, Datenspeicher und virtuellen Maschinen ab. Wenn Sie nicht warten, kann es gelegentlich zu Fehlern kommen.
 
 
 Wenn der Konformitätsstatus der virtuellen Maschine nach dem Upgrade veraltet ist, wenden Sie die Speicherrichtlinie mit den folgenden Schritten erneut an:
 
-. Navigieren Sie zum Datenspeicher und wählen Sie *Zusammenfassung* > *VM-Speicherrichtlinien*.
+. Gehen Sie zum Datenspeicher und wählen Sie *Zusammenfassung* > *VM-Speicherrichtlinien*.
 +
-Der Konformitätsstatus unter *VM-Speicherrichtlinienkonformität* wird als *Veraltet* angezeigt.
+Das System zeigt den Compliance-Status unter *VM-Speicherrichtlinien-Compliance* als *Veraltet* an.
 
-. Wählen Sie die Storage VM-Richtlinie und die entsprechende VM aus
-. Wählen Sie *Übernehmen*
+. Wählen Sie die Storage-VM-Richtlinie und die entsprechende VM aus.
+. Wählen Sie *Übernehmen*.
 +
-Der Compliance-Status unter *VM-Speicherrichtlinien-Compliance* wird jetzt als konform angezeigt.
+Der Konformitätsstatus unter *VM-Speicherrichtlinienkonformität* wird als konform angezeigt. Verwandte Informationen
+
++
+** link:../concepts/rbac-learn-about.html["Erfahren Sie mehr über ONTAP tools for VMware vSphere 10 RBAC"]
+** link:../upgrade/upgrade-ontap-tools.html["Upgrade von ONTAP tools for VMware vSphere 10.x auf 10.4"]
 
 
-
-.Ähnliche Informationen
-* link:../concepts/rbac-learn-about.html["Erfahren Sie mehr über ONTAP tools for VMware vSphere 10 RBAC"]
-* link:../upgrade/upgrade-ontap-tools.html["Upgrade von ONTAP tools for VMware vSphere 10.x auf 10.4"]
 
 
 
