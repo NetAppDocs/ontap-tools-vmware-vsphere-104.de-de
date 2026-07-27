@@ -15,6 +15,7 @@ vCenter Server-Instanzen sind zentrale Verwaltungsplattformen, mit denen Sie Hos
 
 
 
+[[dissociate-storage-backends-with-the-vcenter-server-instance]]
 == Trennen Sie Speicher-Backends von der vCenter Server-Instanz
 
 Auf der vCenter Server-Listenseite wird die zugehörige Anzahl von Speicher-Backends angezeigt.  Jede vCenter Server-Instanz verfügt über die Möglichkeit, die Verbindung zu einem Speicher-Backend herzustellen oder die Verbindung zu trennen.
@@ -29,6 +30,7 @@ Auf der vCenter Server-Listenseite wird die zugehörige Anzahl von Speicher-Back
 
 
 
+[[modify-a-vcenter-server-instance]]
 == Ändern einer vCenter Server-Instanz
 
 Führen Sie die folgenden Schritte aus, um eine vCenter Server-Instanz zu ändern.
@@ -42,6 +44,7 @@ Führen Sie die folgenden Schritte aus, um eine vCenter Server-Instanz zu änder
 
 
 
+[[remove-a-vcenter-server-instance]]
 == Entfernen einer vCenter Server-Instanz
 
 Sie müssen alle an den vCenter Server angeschlossenen Speicher-Backends entfernen, bevor Sie ihn entfernen.

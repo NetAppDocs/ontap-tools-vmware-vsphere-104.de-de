@@ -18,6 +18,7 @@ Sie können einen API-Aufruf mit curl ausgeben, um mit den ONTAP tools for VMwar
 
 
 
+[[before-you-begin]]
 == Bevor Sie beginnen
 
 Sie sollten die erforderlichen Informationen und Parameter in den Curl-Beispielen überprüfen.
@@ -58,6 +59,7 @@ echo $FQDN_IP
 ----
 
 
+[[step-1-acquire-an-access-token]]
 == Schritt 1: Abrufen eines Zugriffstokens
 
 Sie müssen ein Zugriffstoken erwerben, um die REST-API zu verwenden.  Nachfolgend wird ein Beispiel für die Anforderung eines Zugriffstokens dargestellt.  Sie sollten die entsprechenden Werte für Ihre Umgebung einsetzen.
@@ -74,6 +76,7 @@ Kopieren und speichern Sie das in der Antwort bereitgestellte Zugriffstoken.
 
 
 
+[[step-2-issue-the-rest-api-call]]
 == Schritt 2: Ausführen des REST-API-Aufrufs
 
 Nachdem Sie über ein Zugriffstoken verfügen, können Sie mit curl einen REST-API-Aufruf tätigen.  Fügen Sie das im ersten Schritt erworbene Zugriffstoken ein.

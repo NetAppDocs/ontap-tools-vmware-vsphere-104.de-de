@@ -15,6 +15,7 @@ Sie sollten die Speichersysteme einrichten, bevor Sie den Storage Replication Ad
 
 
 
+[[configure-sra-for-san-environments]]
 == Konfigurieren von SRA für SAN-Umgebungen
 
 .Bevor Sie beginnen
@@ -44,6 +45,7 @@ Sie können dies tun, indem Sie entweder überprüfen, ob die ESXi-Hosts lokale 
 
 
 
+[[configure-sra-for-nas-environments]]
 == Konfigurieren von SRA für NAS-Umgebungen
 
 .Bevor Sie beginnen

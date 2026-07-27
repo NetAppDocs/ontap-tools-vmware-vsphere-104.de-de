@@ -15,6 +15,7 @@ Befolgen Sie die Schritte in diesem Abschnitt, um den VASA Provider von ONTAP to
 
 
 
+[[steps-to-migrate-the-vasa-provider]]
 == Schritte zur Migration des VASA-Anbieters
 
 . Um Derby PORT 1527 auf den vorhandenen ONTAP tools for VMware vSphere zu aktivieren, aktivieren Sie den Root-Benutzer und melden Sie sich über SSH bei der CLI an.  Führen Sie dann den folgenden Befehl aus:
@@ -220,6 +221,7 @@ Der Konformitätsstatus unter *VM-Speicherrichtlinienkonformität* wird als konf
 
 
 
+[[steps-to-update-the-storage-replication-adaptorsra]]
 == Schritte zum Aktualisieren des Speicherreplikationsadapters (SRA)
 
 .Bevor Sie beginnen

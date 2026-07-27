@@ -228,6 +228,7 @@ https://docs.netapp.com/us-en/ontap/san-admin/igroups-concept.html["Über igroup
 
 
 
+[[export-policies]]
 == Exportrichtlinien
 
 Exportrichtlinien steuern den Zugriff auf NFS-Datenspeicher in ONTAP tools for VMware vSphere.  Sie definieren, welche Clients auf die Datenspeicher zugreifen können und welche Berechtigungen sie haben.  Exportrichtlinien werden in ONTAP -Systemen erstellt und verwaltet und können mit NFS-Datenspeichern verknüpft werden, um die Zugriffskontrolle durchzusetzen.  Jede Exportrichtlinie besteht aus Regeln, die die Clients (IP-Adressen oder Subnetze) angeben, denen Zugriff gewährt wird, und die erteilten Berechtigungen (schreibgeschützt oder Lese-/Schreibzugriff).

@@ -15,6 +15,7 @@ Speicher-Backends sind Systeme, die die ESXi-Hosts zur Datenspeicherung verwende
 
 
 
+[[discover-storage]]
 == Entdecken Sie Speicher
 
 Sie können die Erkennung eines Speicher-Backends bei Bedarf ausführen, ohne auf eine geplante Erkennung zur Aktualisierung der Speicherdetails warten zu müssen.
@@ -32,6 +33,7 @@ Sie können den Fortschritt im Bereich „Letzte Aufgaben“ verfolgen.
 
 
 
+[[modify-storage-backends]]
 == Speicher-Backends ändern
 
 Befolgen Sie die Schritte in diesem Abschnitt, um ein Speicher-Backend zu ändern.
@@ -54,6 +56,7 @@ Sie können den Änderungsvorgang für globale ONTAP Cluster mithilfe des ONTAP 
 
 
 
+[[remove-storage-backends]]
 == Entfernen von Speicher-Backends
 
 Sie müssen alle an das Speicher-Backend angehängten Datenspeicher löschen, bevor Sie das Speicher-Backend entfernen. Führen Sie die folgenden Schritte aus, um ein Speicher-Backend zu entfernen.
@@ -75,6 +78,7 @@ Sie können den Entfernungsvorgang für globale ONTAP Cluster mit dem ONTAP Tool
 
 
 
+[[drill-down-view-of-storage-backend]]
 == Drilldown-Ansicht des Speicher-Backends
 
 Auf der Speicher-Backend-Seite sind alle Speicher-Backends aufgelistet. Sie können Speichererkennungs-, Änderungs- und Entfernungsvorgänge auf den von Ihnen hinzugefügten Speicher-Backends durchführen und nicht auf den einzelnen untergeordneten SVMs unter dem Cluster.

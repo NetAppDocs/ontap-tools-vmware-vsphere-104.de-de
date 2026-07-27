@@ -15,6 +15,7 @@ Es gibt mehrere Aspekte der ONTAP tools for VMware vSphere 10 RBAC-Implementieru
 
 
 
+[[overview-of-the-configuration-process]]
 == Übersicht über den Konfigurationsprozess
 
 ONTAP tools for VMware vSphere 10 unterstützen die Erstellung eines ONTAP Benutzers mit einer benutzerdefinierten Rolle. Die Definitionen sind in einer JSON-Datei verpackt, die Sie in den ONTAP Cluster hochladen können. Sie können den Benutzer erstellen und die Rolle an Ihre Umgebung und Sicherheitsanforderungen anpassen.
@@ -41,18 +42,21 @@ Im Rahmen der Rollendefinition müssen Sie mehrere administrative Entscheidungen
 
 
 
+[[configure-the-role-using-system-manager]]
 == Konfigurieren der Rolle mit System Manager
 
 Nachdem Sie mit dem Erstellen eines neuen Benutzers und einer neuen Rolle mit System Manager begonnen und die JSON-Datei hochgeladen haben, können Sie die Rolle basierend auf Ihrer Umgebung und Ihren Anforderungen anpassen.
 
 
 
+[[core-user-and-role-configuration]]
 === Grundlegende Benutzer- und Rollenkonfiguration
 
 Die RBAC-Definitionen sind als mehrere Produktfunktionen verpackt, darunter Kombinationen aus VSC, VASA Provider und SRA.  Sie sollten die Umgebung(en) auswählen, in denen Sie RBAC-Unterstützung benötigen.  Wenn Sie beispielsweise möchten, dass Rollen die Remote-Plug-In-Funktion unterstützen, wählen Sie VSC aus.  Außerdem müssen Sie den Benutzernamen und das zugehörige Passwort wählen.
 
 
 
+[[privileges]]
 === Privileges
 
 Die Rollenberechtigungen sind in vier Gruppen unterteilt, basierend auf der erforderlichen Zugriffsebene auf den ONTAP Speicher.  Zu den den Rollen zugrunde liegenden Berechtigungen gehören:
@@ -77,6 +81,7 @@ Mit dieser Rolle können Sie Speicher zerstören.  Es umfasst außerdem alle Ber
 
 
 
+[[generate-the-user-with-a-role]]
 === Generieren Sie den Benutzer mit einer Rolle
 
 Nachdem Sie die Konfigurationsoptionen für Ihre Umgebung ausgewählt haben, klicken Sie auf *Hinzufügen* und ONTAP erstellt den Benutzer und die Rolle.  Der Name der generierten Rolle ist eine Verkettung der folgenden Werte:

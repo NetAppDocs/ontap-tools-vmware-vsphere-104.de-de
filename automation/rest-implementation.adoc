@@ -20,6 +20,7 @@ Die REST-API umfasst mehrere Ressourcenkategorien wie vCenter und Aggregate.  Ü
 
 
 
+[[how-to-access-the-rest-api]]
 == So greifen Sie auf die REST-API zu
 
 Sie können über die IP-Adresse und den Port der ONTAP -Tools auf die ONTAP tools for VMware vSphere 10 REST API zugreifen.  Die vollständige URL besteht aus mehreren Teilen, darunter:
@@ -47,12 +48,14 @@ CAUTION: Die IP-Adress- und Portwerte in den folgenden Beispielen dienen nur zu 
 
 
 
+[[http-details]]
 == HTTP-Details
 
 Die ONTAP tools for VMware vSphere 10 REST-API verwenden HTTP und zugehörige Parameter, um auf die Ressourceninstanzen und -sammlungen einzuwirken.  Details zur HTTP-Implementierung werden unten dargestellt.
 
 
 
+[[http-methods]]
 === HTTP-Methoden
 
 Die von der REST-API unterstützten HTTP-Methoden oder Verben sind in der folgenden Tabelle aufgeführt.
@@ -78,6 +81,7 @@ Die von der REST-API unterstützten HTTP-Methoden oder Verben sind in der folgen
 |===
 
 
+[[request-and-response-headers]]
 === Anforderungs- und Antwortheader
 
 Die folgende Tabelle fasst die wichtigsten mit der REST-API verwendeten HTTP-Header zusammen.
@@ -97,6 +101,7 @@ Die folgende Tabelle fasst die wichtigsten mit der REST-API verwendeten HTTP-Hea
 |===
 
 
+[[http-status-codes]]
 === HTTP-Statuscodes
 
 Die von der REST-API verwendeten HTTP-Statuscodes werden unten beschrieben.
@@ -137,6 +142,7 @@ Die von der REST-API verwendeten HTTP-Statuscodes werden unten beschrieben.
 |===
 
 
+[[authentication]]
 == Authentifizierung
 
 Die Authentifizierung eines Clients gegenüber der REST-API erfolgt mithilfe eines Zugriffstokens.  Zu den relevanten Merkmalen des Tokens und des Authentifizierungsprozesses gehören:
@@ -151,6 +157,7 @@ Siehelink:../automation/first-call.html["Ihr erster REST-API-Aufruf"] für ein B
 
 
 
+[[synchronous-and-asynchronous-requests]]
 == Synchrone und asynchrone Anfragen
 
 Die meisten REST-API-Aufrufe werden schnell abgeschlossen und laufen daher synchron.  Das heißt, sie geben einen Statuscode (z. B. 200) zurück, nachdem eine Anfrage abgeschlossen wurde.  Anfragen, deren Abschluss länger dauert, werden asynchron mithilfe eines Hintergrundjobs ausgeführt.

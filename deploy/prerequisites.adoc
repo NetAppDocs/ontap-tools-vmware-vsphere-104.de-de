@@ -17,6 +17,7 @@ Sie können ONTAP tools for VMware vSphere mit VMware vCenter Server Virtual App
 
 
 
+[[system-requirements]]
 == Systemanforderungen
 
 * *Speicherplatzbedarf des Installationspakets pro Knoten*
@@ -47,6 +48,7 @@ NOTE: Wenn die Sicherung aktiviert ist, benötigt jeder ONTAP Tools-Cluster weit
 
 
 
+[[minimum-storage-and-application-requirements]]
 == Mindestanforderungen an Speicher und Anwendung
 
 |===
@@ -82,6 +84,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src
 
 
 
+[[port-requirements]]
 == Portanforderungen
 
 Die folgende Tabelle zeigt die von NetApp verwendeten Netzwerkports und deren Zweck. Es gibt drei verschiedene Arten von Anschlüssen:
@@ -154,6 +157,7 @@ NOTE: Bei HA-Bereitstellungen muss sichergestellt werden, dass der UDP-Port 8472
 
 
 
+[[configuration-limits-to-deploy-ontap-tools-for-vmware-vsphere]]
 == Konfigurationslimits für die Bereitstellung von ONTAP tools for VMware vSphere
 
 Sie können die folgende Tabelle als Leitfaden zum Konfigurieren von ONTAP tools for VMware vSphere verwenden.
@@ -180,6 +184,7 @@ Sie können die folgende Tabelle als Leitfaden zum Konfigurieren von ONTAP tools
 |===
 
 
+[[ontap-tools-for-vmware-vsphere-storage-replication-adapter-sra]]
 == ONTAP tools for VMware vSphere – Storage Replication Adapter (SRA)
 
 Die folgende Tabelle zeigt die pro VMware Live Site Recovery-Instanz unterstützten Zahlen mit ONTAP tools for VMware vSphere.

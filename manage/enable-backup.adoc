@@ -18,6 +18,7 @@ NOTE: Um zu HA zu migrieren, wenn die Nicht-HA-Sicherung aktiviert ist, deaktivi
 
 
 
+[[create-backup-and-download-the-backup-file]]
 == Backup erstellen und Backup-Datei herunterladen
 
 .Schritte
@@ -41,6 +42,7 @@ Im Dateibereich können Sie das Verzeichnis sehen.  Der Name des Verzeichnisses 
 
 
 
+[[recover]]
 == Genesen
 
 Um das Setup wiederherzustellen, schalten Sie die vorhandene virtuelle Maschine aus und stellen Sie eine neue virtuelle Maschine mithilfe der OVA bereit, die bei der ersten Bereitstellung verwendet wurde.

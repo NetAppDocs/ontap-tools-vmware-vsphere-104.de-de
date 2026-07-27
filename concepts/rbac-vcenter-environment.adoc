@@ -18,6 +18,7 @@ VMware vCenter Server bietet eine RBAC-Funktion, mit der Sie den Zugriff auf vSp
 
 
 
+[[illustration-of-a-vcenter-server-permission]]
 == Abbildung einer vCenter Server-Berechtigung
 
 Eine Berechtigung ist die Grundlage für die Durchsetzung der Zugriffskontrolle in der vCenter Server-Umgebung.  Es wird auf ein vSphere-Objekt mit einem Benutzer oder einer Gruppe angewendet, der bzw. die in der Berechtigungsdefinition enthalten ist.  Eine allgemeine Darstellung einer vCenter-Berechtigung finden Sie in der folgenden Abbildung.
@@ -26,18 +27,21 @@ image:vc-permission.png["vCenter-Berechtigung"]
 
 
 
+[[components-of-a-vcenter-server-permission]]
 == Komponenten einer vCenter Server-Berechtigung
 
 Eine vCenter Server-Berechtigung ist ein Paket aus mehreren Komponenten, die beim Erstellen der Berechtigung miteinander verbunden werden.
 
 
 
+[[vsphere-objects]]
 === vSphere-Objekte
 
 Berechtigungen sind mit vSphere-Objekten verknüpft, beispielsweise mit dem vCenter Server, ESXi-Hosts, virtuellen Maschinen, Datenspeichern, Rechenzentren und Ordnern.  Basierend auf den dem Objekt zugewiesenen Berechtigungen bestimmt vCenter Server, welche Aktionen oder Aufgaben von jedem Benutzer oder jeder Gruppe am Objekt ausgeführt werden können.  Für die für ONTAP tools for VMware vSphere spezifischen Aufgaben werden alle Berechtigungen auf der Stamm- oder Stammordnerebene von vCenter Server zugewiesen und validiert. Sehen link:../concepts/rbac-vcenter-use.html["Verwenden von RBAC mit vCenter-Server"] für weitere Informationen.
 
 
 
+[[privileges-and-roles]]
 === Privileges und Rollen
 
 Es gibt zwei Arten von vSphere-Berechtigungen, die mit ONTAP tools for VMware vSphere 10 verwendet werden.  Um die Arbeit mit RBAC in dieser Umgebung zu vereinfachen, stellen ONTAP Tools Rollen bereit, die die erforderlichen nativen und benutzerdefinierten Berechtigungen enthalten.  Zu den Privilegien gehören:
@@ -54,6 +58,7 @@ Dies sind benutzerdefinierte Berechtigungen, die nur für ONTAP tools for VMware
 
 
 
+[[users-and-groups]]
 === Benutzer und Gruppen
 
 Sie können Benutzer und Gruppen über Active Directory oder die lokale vCenter Server-Instanz definieren. In Kombination mit einer Rolle können Sie eine Berechtigung für ein Objekt in der vSphere-Objekthierarchie erstellen. Die Berechtigung gewährt Zugriff basierend auf den Berechtigungen der zugehörigen Rolle. Beachten Sie, dass Rollen nicht isoliert Benutzern direkt zugewiesen werden. Stattdessen erhalten Benutzer und Gruppen Zugriff auf ein Objekt über Rollenberechtigungen als Teil der umfassenderen vCenter Server-Berechtigung.

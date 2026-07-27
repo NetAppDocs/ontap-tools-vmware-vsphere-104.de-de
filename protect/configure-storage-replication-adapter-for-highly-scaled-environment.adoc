@@ -15,6 +15,7 @@ Sie sollten die Speicher-Timeout-Intervalle gemäß den empfohlenen Einstellunge
 
 
 
+[[storage-provider-settings]]
 == Speicheranbietereinstellungen
 
 Sie sollten die folgenden Timeout-Werte für VMware Live Site Recovery für eine skalierte Umgebung festlegen:
@@ -58,6 +59,7 @@ Siehe https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-rec
 
 
 
+[[storage-settings]]
 == Speichereinstellungen
 
 Wenn Sie ein Timeout erreichen, erhöhen Sie die Werte von `storage.commandTimeout` Und `storage.maxConcurrentCommandCnt` auf einen höheren Wert.

@@ -17,6 +17,7 @@ Wenn Sie einen neuen Datenspeicher hinzufügen, können Sie ihn in die bestehend
 
 
 
+[[pair-protected-and-recovery-sites]]
 == Koppeln Sie geschützte Sites und Wiederherstellungssites
 
 Sie sollten die mit Ihrem vSphere-Client erstellten geschützten Sites und Wiederherstellungssites koppeln, damit der Storage Replication Adapter (SRA) die Speichersysteme erkennen kann.
@@ -47,6 +48,7 @@ Sowohl die geschützten als auch die Wiederherstellungssites werden im Dialogfel
 
 
 
+[[configure-protection-groups]]
 == Konfigurieren von Schutzgruppen
 
 .Bevor Sie beginnen

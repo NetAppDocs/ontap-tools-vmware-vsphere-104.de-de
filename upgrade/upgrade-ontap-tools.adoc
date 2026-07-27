@@ -84,7 +84,7 @@ Führen Sie die folgenden Befehle aus, um eine Sicherung von MongoDB zu erstelle
 *Erstellen Sie den Snapshot der ONTAP tools for VMware vSphere VMs in vCenter (3 VMs im Fall einer HA-Bereitstellung, 1 VM im Fall einer Nicht-HA-Bereitstellung)*
 
 * Wählen Sie in der Benutzeroberfläche des vSphere-Clients die VM aus.
-* Gehen Sie zur Registerkarte „Schnappschüsse“ und wählen Sie die Schaltfläche „Schnappschuss machen“ aus.  Erstellen Sie einen Ruhe-Snapshot der VM.  Siehe https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/take-snapshots-of-a-virtual-machine.html["Erstellen Sie einen Snapshot einer virtuellen Maschine"^] für Details.
+* Wechseln Sie zum Tab „Snapshots“ und wählen Sie die Schaltfläche „Snapshot erstellen“. Erstellen Sie einen ruhenden Snapshot der VM. Weitere Informationen finden Sie unter  https://techdocs.broadcom.com/["Broadcom Technische Dokumentation"^].
 
 
 Löschen Sie vor dem Upgrade die abgeschlossenen Pods aus dem Protokollpaket mit dem Präfix „generate-support-bundle-job“.  Wenn die Generierung des Support-Pakets läuft, warten Sie, bis sie abgeschlossen ist, und löschen Sie dann den Pod.

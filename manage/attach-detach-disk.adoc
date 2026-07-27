@@ -12,6 +12,7 @@ summary: Schließen Sie eine Datenfestplatte an eine virtuelle Maschine an, um d
 
 
 
+[[attach-a-data-disk-to-a-virtual-machine]]
 == Anfügen eines Datenträgers an eine virtuelle Maschine
 
 Schließen Sie eine Datenfestplatte an eine virtuelle Maschine an, um die Speicherkapazität zu erweitern.
@@ -29,6 +30,7 @@ Die Festplatte wird in der Liste der virtuellen Hardwaregeräte angezeigt.
 
 
 
+[[detach-a-data-disk-from-the-virtual-machine]]
 == Trennen Sie einen Datenträger von der virtuellen Maschine
 
 Sie können eine an eine virtuelle Maschine angeschlossene Datenfestplatte trennen, wenn sie nicht mehr benötigt wird.  Wenn Sie die Festplatte von der virtuellen Maschine trennen, wird sie nicht automatisch gelöscht; sie verbleibt auf dem ONTAP Speichersystem.

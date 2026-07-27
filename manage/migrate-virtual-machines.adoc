@@ -15,6 +15,7 @@ Bei der Migration vorhandener virtueller Maschinen in Ihrem Rechenzentrum sollte
 
 
 
+[[migrate-protected-virtual-machines]]
 == Migrieren geschützter virtueller Maschinen
 
 Sie können die geschützten virtuellen Maschinen migrieren nach:
@@ -28,6 +29,7 @@ Wenn die virtuelle Maschine auf ein anderes FlexVol volume migriert wird, wird a
 
 
 
+[[clone-protected-virtual-machines]]
 == Klonen Sie geschützte virtuelle Maschinen
 
 Sie können geschützte virtuelle Maschinen wie folgt klonen:
@@ -54,6 +56,7 @@ Siehe https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere
 
 
 
+[[virtual-machine-snapshots]]
 == Snapshots virtueller Maschinen
 
 Derzeit werden nur Snapshots virtueller Maschinen ohne Speicher unterstützt.  Wenn die virtuelle Maschine über einen Snapshot mit Speicher verfügt, wird die virtuelle Maschine für den Schutz nicht berücksichtigt.

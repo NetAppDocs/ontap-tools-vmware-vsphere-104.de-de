@@ -48,10 +48,12 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt sind, bevor Sie mi
 |===
 
 
+[[deployment-worksheet]]
 == Bereitstellungsarbeitsblatt
 
 
 
+[[for-single-node-deployment]]
 === Für die Bereitstellung auf einem einzelnen Knoten
 
 Verwenden Sie das folgende Arbeitsblatt, um die erforderlichen Informationen für ONTAP tools for VMware vSphere zu sammeln:
@@ -100,6 +102,7 @@ NOTE: Erstellen Sie DNS-Einträge für alle oben genannten IP-Adressen.  Ordnen 
 
 
 
+[[for-high-availability-ha-deployment]]
 === Für die Bereitstellung mit hoher Verfügbarkeit (HA)
 
 Zusätzlich zu den Anforderungen für die Bereitstellung eines einzelnen Knotens benötigen Sie für die HA-Bereitstellung die folgenden Informationen:
@@ -132,12 +135,14 @@ Zusätzlich zu den Anforderungen für die Bereitstellung eines einzelnen Knotens
 |===
 
 
+[[network-firewall-configuration]]
 == Netzwerk-Firewall-Konfiguration
 
 Öffnen Sie die erforderlichen Ports für die IP-Adressen in Ihrer Netzwerk-Firewall.  ONTAP -Tools müssen dieses LIF über Port 443 erreichen können.  Siehelink:../deploy/prerequisites.html["Portanforderungen"] für die neuesten Updates.
 
 
 
+[[ontap-storage-settings]]
 == ONTAP -Speichereinstellungen
 
 Um eine nahtlose Integration des ONTAP Speichers mit ONTAP tools for VMware vSphere sicherzustellen, sollten Sie die folgenden Einstellungen berücksichtigen:

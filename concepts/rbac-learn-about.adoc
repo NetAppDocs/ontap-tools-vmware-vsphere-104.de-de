@@ -20,6 +20,7 @@ Das RBAC-Standardmodell besteht aus mehreren Implementierungstechnologien oder P
 
 
 
+[[rbac-components]]
 == RBAC-Komponenten
 
 Auf hoher Ebene gibt es mehrere Komponenten, die im Allgemeinen in jeder RBAC-Implementierung enthalten sind.  Diese Komponenten werden im Rahmen der Definition der Autorisierungsprozesse auf unterschiedliche Weise miteinander verknüpft.
@@ -41,6 +42,7 @@ Eine _Berechtigung_ ist eine Definition, die einen Benutzer oder eine Gruppe zus
 
 
 
+[[two-rbac-environments]]
 == Zwei RBAC-Umgebungen
 
 Es gibt zwei unterschiedliche RBAC-Umgebungen, die Sie bei der Arbeit mit ONTAP tools for VMware vSphere 10 berücksichtigen müssen.
